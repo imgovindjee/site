@@ -1,0 +1,12 @@
+.dropdown-item:hover {
+    background-color: var(--dropdown_hover_bg);
+    color: var(--dropdown_hover_text_color);
+    cursor: pointer;
+}
+
+#scrollableDiv::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px gray;
+    border-radius: 200px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}

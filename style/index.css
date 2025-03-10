@@ -1,0 +1,109 @@
+.wrapper {
+    max-width: 200px;
+    width: 100%
+}
+
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    display: block !important
+}
+
+.shadow {
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000
+}
+
+#outerStoryRing {
+    height: 65px;
+    width: 65px;
+    background-color: #36d8f4;
+    background: linear-gradient(45deg, #ef3357, #ef553a, #ef9a33, #efcc33, #ebee33, #b0ef34, #4eef3d, #33ef83, #33e9da, #67B3DA, #9C7CDA, #D046DA, #DA40AE, #E03D99, #E53983, #EA366D);
+    border-radius: 100px;
+    padding: 3px;
+    background-size: 600% 100%;
+    animation: gradient 10s linear infinite;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 8px
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+#StoryItem {
+    text-align: center;
+    vertical-align: top;
+    word-wrap: break-word;
+    font-size: 12px;
+    width: 95px
+}
+
+#StoryTable {
+    table-layout: fixed
+}
+
+#middleStory {
+    height: 59px;
+    width: 59px;
+    padding: 1px;
+    background-color: var(--page_bg);
+    border-radius: 100px;
+    align-items: center
+}
+
+#ImageDiv {
+    height: 0vh;
+    width: 0vw;
+    position: fixed;
+    z-index: 2000;
+    margin-top: 50vh;
+    margin-bottom: 50vh;
+    margin-left: 50vw;
+    margin-right: 50vw;
+    opacity: 0.3;
+    background-color: var(--page_bg);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 0.3s;
+    text-align: center
+}
+
+.locationDialogButton {
+    margin-top: 17px;
+    visibility: hidden;
+}
+
+#searchTermTB::placeholder {
+    color: rgb(142, 142, 142);
+    font-style: italic;
+}
+
+input#searchTermTB:focus,
+select#searchTermTB:focus,
+textarea#searchTermTB:focus,
+button#searchTermTB:focus {
+    outline: none;
+}
+
+:-ms-input-placeholder {
+    color: red;
+    font-style: italic;
+}
+
+::-ms-input-placeholder {
+    color: red;
+    font-style: italic;
+}

@@ -1,0 +1,7 @@
+.skill {
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: var(--tile_bg);
+    transition-duration: 0.3s;
+    cursor: pointer;
+}

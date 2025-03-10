@@ -1,0 +1,18 @@
+.search_item {
+    width: 100%;
+    border-radius: 10px;
+    -webkit-box-shadow: 0px 0px 2px 0px rgba(112, 112, 112, 1);
+    -moz-box-shadow: 0px 0px 2px 0px rgba(112, 112, 112, 1);
+    box-shadow: 0px 0px 2px 0px rgba(112, 112, 112, 1);
+    transition: 1s;
+    padding: 8px;
+    background-color: #FDFDFD1A;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+.my_search_dropdown {
+    color: #DEE4E7;
+    width: 90vw;
+    transition-duration: 0.3s;
+}

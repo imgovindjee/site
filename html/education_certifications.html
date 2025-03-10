@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta name="description"
+        content="Explore Shree Govind Jee's passion, apps, education, work experiences, skills, and more on his official website. Discover code samples and achievements in tech." />
+    <meta name="copyright" content="Shree Govind Jee" />
+    <meta name="keywords"
+        content="Govind Jee,Govind,Shree Govind Jee,Shree Govind Jee,Govind Jee,Govind,java,python,android java,android,react native,flutter,ios,swift,kotlin" />
+    <meta name="DC.title" content="Shree Govind Jee" />
+    <meta name="title" content="Shree Govind Jee" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="Shree Govind Jee" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://imgovindjee.github.io/site/">
+    <meta property="og:title" content="Shree Govind Jee">
+    <meta property="og:description"
+        content="Explore Shree Govind Jee's passion, apps, education, work experiences, skills, and more on his official website. Discover code samples and achievements in tech.">
+    <meta property="og:image" content="../assets/images/profile/tab_icon.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://imgovindjee.github.io/site/">
+    <meta property="twitter:title" content="Shree Govind Jee">
+    <meta property="twitter:description"
+        content="Explore Shree Govind Jee's passion, apps, education, work experiences, skills, and more on his official website. Discover code samples and achievements in tech.">
+    <meta property="twitter:image" content="../assets/images/profile/tab_icon.png">
+
+
+
+    <!-- CDN's -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+
+
+    <!-- SCRIPT -->
+    <script type="text/javascript" src="../script/myScript.js"></script>
+    <script type="text/javascript" src="../script/popup.js"></script>
+    <script type="text/javascript" src="../script/jsonData/app.js"></script>
+    <script type="text/javascript" src="../script/jsonData/github_repos.js"></script>
+    <script type="text/javascript" src="../script/jsonData/work.js"></script>
+    <script type="text/javascript" src="../script/jsonData/skills.js"></script>
+    <script type="text/javascript" src="../script/jsonData/education_certificate.js"></script>
+    <script type="text/javascript" src="../script/jsonData/highlight.js"></script>
+    <script type="text/javascript" src="../script/jsonData/socialID.js"></script>
+    <script type="text/javascript" src="../script/script2/common.js"></script>
+    <script type="text/javascript" src="../script/script2/search.js"></script>
+    <script type="text/javascript" src="../script/script2/education_certificate.js"></script>
+    <script type="text/javascript" src="../script/htmlJs/education_certification.js"></script>
+
+
+
+
+    <!-- STYLE -->
+    <link rel="stylesheet" type="text/css" href="../style/eductaion_certification.css">
+    <link rel="stylesheet" type="text/css" href="../style/popup.css">
+    <link rel="stylesheet" type="text/css" href="../style/common.css">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+
+
+
+
+    <title>Shree Govind Jee</title>
+    <link rel="icon" href="../assets/images/profile/tab_icon.png" type="image/x-icon">
+</head>
+
+
+
+
+<body class="page_background" onbeforeunload="educationUnLoad()">
+
+    <div id="searchDialog" class="my_fade_in"
+        style="background-color: #121212F0;position: fixed;z-index: 6000;height: 100vh;width: 100vw;padding-bottom: 10vh;visibility: hidden;opacity: 0; transition: 1s;">
+        <div style="height: 10vh;">
+            <span style="right:0;margin-right:10px;margin-top:10px;position: absolute;cursor: pointer;"
+                onclick="closeSearchDialog()">
+                <img src="assets/img/highlights/icons/dark/close.png" style="width: 22px;height: 22px;" />
+            </span>
+        </div>
+
+        <div class="my_fade_in" id="searchSuggestion" onclick="onSearchSuggestionClick()"
+            style="width: fit-content;margin-left: 5vw;margin-right: 5vw;color: #DEE4E7;background-color: #d3d2d21a;border-color: #ffefb9;border-width: 0.2px;border-style: solid;margin-bottom: 15px;border-radius: 100px;padding-left: 10px;padding-right:15px;font-size: 13px;display: none;cursor: pointer;">
+            💡 <i>
+                Searching for
+                <b id="searchSuggestionSection"></b>
+                ?
+            </i>
+        </div>
+
+        <input type="text" class="my_fade_in"
+            style="background-color: #FDFDFD1A;width: 90vw;margin-left: 5vw;color: #DEE4E7;border:0;height: 36px;border-radius: 100px;padding-left: 20px;margin-bottom: 20px;"
+            placeholder="Search anything..." id="searchTermTB" onkeyup="getSearchResults(this)" />
+
+        <div class="dropdown my_fade_in">
+            <button class="my_search_dropdown"
+                style="background-color: #FDFDFD1A;border: none;outline: none;margin-left: 5vw;width: 90vw;border-radius: 100px;text-align: start;height: 36px;padding-left: 20px;"
+                type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropDownValue">
+                ▼ Search in All
+            </button>
+            <div class="dropdown-menu my_fade_in" aria-labelledby="dropdownMenu2"
+                style="background-color: #121212EA;border-radius: 10px;" id="searchDropDownId"></div>
+        </div>
+
+        <div style="margin-left: 5vw;width: 90vw;overflow-y: auto;height: calc(86% - 92px);margin-top: 10px;padding-top: 10px;padding-bottom: 10px; padding-left: 10px; padding-right: 10px;"
+            id="searchResultArea"></div>
+    </div>
+
+
+
+    <div id="helpDialog" class="my_fade_in"
+        style="background-color: #121212F0;position: fixed;z-index: 5000;height: 100vh;width: 100vw;padding-bottom: 10vh;visibility: hidden;opacity: 0; transition: 1s;">
+        <div style="height: 10vh;">
+            <span style="right:0;margin-right:10px;margin-top:10px;position: absolute;cursor: pointer;"
+                onclick="closeHelphDialog()">
+                <img src="assets/img/highlights/icons/dark/close.png" style="width: 22px;height: 22px;" />
+            </span>
+        </div>
+
+        <div style="overflow-y: auto;scroll-behavior: auto;height: 90vh;padding-bottom: 10px;color: #FDFDFD;"
+            id="helpInfoText"></div>
+    </div>
+
+    <div id="MyButtonsDiv">
+        <div id="headerDiv" style="margin-top: 10px">
+            <div id="titleDiv" style="text-align: left">
+                <span style="font-size: 30px;padding-left: 15px" class="my_text">
+                    Content
+                </span>
+            </div>
+
+            <div id="closeDiv" style="padding-top: 6px" onclick="closeDialogDiv()">
+                <span>
+                    <img src="assets/img/highlights/icons/light/close.png" id="closeImageBtn"
+                        style="width: 27px;height: 27px" />
+                </span>
+            </div>
+        </div>
+
+        <div style="overflow-y: auto; overflow: scroll;height: calc(100% - 70px);text-align: left;margin-top: 20px;"
+            id="dialogContent"></div>
+    </div>
+
+    <div>
+        <nav class="navbar sticky-top navbar-expand-lg navbar-dark nav_bar_background">
+            <a class="navbar-brand" href="#" onclick="openSearchDialog()">
+                Shree Govind Jee
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">
+                            Profile</span>
+                        </a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link">
+                            Education & Certifications
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="work_exp.html">
+                            Work Experience
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="skills.html">
+                            Skills
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="apps" href="apps.html">
+                            Apps
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="github_repo" href="github_repos.html">
+                            Github repositories
+                        </a>
+                    </li>
+                    <li class="nav-item active" id="helpLabel"></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="nav-item active" id="darkModeLabel"></li>
+                </ul>
+            </div>
+        </nav>
+
+        <div class="container-fluid" id="mainDiv" style="margin-top: 10px;margin-bottom: 10px">
+            <h2 class="my_text my_fade_in" style="margin-top: 25px;">
+                Education
+            </h2>
+            <div id="education" style="margin-top:20px;margin-bottom: 30px"></div>
+
+            <h2 class="my_text my_fade_in" style="margin-bottom: 20px;">
+                Professional Certification
+            </h2>
+            <div id="professionalCertificationDiv" style="margin-bottom: 30px"></div>
+
+            <h2 class="my_text my_fade_in" style="margin-bottom: 20px;">
+                Institute Certification
+            </h2>
+            <div id="instituteCertificationDiv" style="margin-bottom: 30px"></div>
+
+            <h2 class="my_text my_fade_in" style="margin-bottom: 20px;">
+                Online Certification
+            </h2>
+            <div id="onlineCertificationDiv" style="margin-bottom: 30px"></div>
+
+            <h2 class="my_text my_fade_in" style="margin-bottom: 20px;">
+                Other Certification
+            </h2>
+            <div id="otherCertificationDiv" style="margin-bottom: 30px"></div>
+        </div>
+    </div>
+</body>
+
+</html>

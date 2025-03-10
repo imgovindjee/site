@@ -1,0 +1,54 @@
+.checked {
+    color: orange
+}
+
+.unchecked {
+    color: gray
+}
+
+.mystar {
+    font-size: 35px;
+    cursor: pointer;
+    margin-left: 7px;
+    transition: opacity 5s linear;
+    transition-duration: 0.3s
+}
+
+#MyButtonsDiv {
+    height: 0vh;
+    width: 100%;
+    position: fixed;
+    z-index: 999999;
+    margin-top: 100vh;
+    margin-bottom: 0vh;
+    margin-left: 0vw;
+    margin-right: 0vw;
+    opacity: 0.3;
+    background-color: var(--page_bg);
+    overflow-x: hidden;
+    overflow-y: hidden;
+    transition: 1.2s;
+    text-align: center
+}
+
+#headerDiv {
+    width: 100%;
+    height: 50px
+}
+
+#closeDiv {
+    float: right;
+    display: inline-block;
+    width: 70px;
+    height: 100%;
+    cursor: pointer
+}
+
+#titleDiv {
+    float: left;
+    display: inline-block;
+    width: -moz-calc(100% - 70px);
+    width: -webkit-calc(100% - 70px);
+    width: calc(100% - 70px);
+    height: 100%
+}

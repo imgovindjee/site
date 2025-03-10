@@ -1,0 +1,167 @@
+:root {
+    --nav_bg: #4A148C;
+    --page_bg: #F5F5F5;
+    --text_color: #1A1A1A;
+    --card_bg: #F5F5F5;
+    --tile_bg: #E8EAF6;
+    --button_color: #4A148C;
+    --button_text_color: #F5F5F5;
+    --dim_rev_page_bg: #1F1A24;
+    --dim_rev_text_color: #ECEFF1;
+    --translucent_page_bg: #FDFDFD1A;
+    --dropdown_hover_bg: #4A148C;
+    --dropdown_hover_text_color: #F5F5F5;
+  }
+  
+  body {
+    overflow-y: overlay;
+  }
+  
+  
+  #searchResultArea::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+  }
+  
+  #searchResultArea::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px #00000000;
+    border-radius: 200px;
+  }
+  
+  #searchResultArea::-webkit-scrollbar-thumb {
+    background: #00000000;
+    border-radius: 200px;
+  }
+  
+  #highlightContainer::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+  }
+  
+  #highlightContainer::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px var(--page_bg);
+    border-radius: 200px;
+  }
+  
+  #highlightContainer::-webkit-scrollbar-thumb {
+    background: var(--page_bg);
+    border-radius: 200px;
+  }
+  
+  
+  
+  .nav_bar_background {
+    background-color: var(--nav_bg);
+  }
+  
+  .page_background {
+    background-color: var(--page_bg);
+  }
+  
+  .about_container {
+    border-top-left-radius: 5vw;
+    border-top-right-radius: 5vw;
+    width: 100%;
+    background-color: var(--page_bg);
+    display: flex;
+    justify-content: center;
+    margin-top: -80px;
+    position: absolute;
+    z-index: 5;
+  }
+  
+  #profile_image {
+    margin-top: -125px;
+    border-radius: 200px;
+    border: 4px solid var(--page_bg);
+    object-fit: cover;
+    transition-duration: 0.3s;
+  }
+  
+  .my_text {
+    color: var(--text_color);
+    transition-duration: 0.3s;
+  }
+  
+  .social_icon {
+    margin: 7px;
+    cursor: pointer;
+    transition: opacity 5s linear;
+    transition-duration: 0.3s;
+  }
+  
+  .card {
+    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    background-color: var(--card_bg);
+    transition-duration: 0.3s;
+  }
+  
+  .my_button {
+    background-color: var(--button_color);
+    color: var(--button_text_color);
+    transition-duration: 0.3s;
+  }
+  
+  .my_fade_in {
+    animation: fadeIn 1.5s;
+    -webkit-animation: fadeIn 1.5s;
+    -moz-animation: fadeIn 1.5s;
+    -o-animation: fadeIn 1.5s;
+    -ms-animation: fadeIn 1.5s;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @-moz-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @-webkit-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @-o-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @-ms-keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+  
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  #darkModeLabel {
+    align-items: center !important;
+    display: flex;
+  }

@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <meta name="description"
+        content="Explore Shree Govind Jee's passion, apps, education, work experiences, skills, and more on his official website. Discover code samples and achievements in tech." />
+    <meta name="copyright" content="Shree Govind Jee" />
+    <meta name="keywords"
+        content="Shree Govind Jee,Shree Govind Jee,java,python,android java,android,react native,flutter,ios,swift,kotlin" />
+    <meta name="DC.title" content="Shree Govind Jee" />
+    <meta name="title" content="Shree Govind Jee" />
+    <meta name="robots" content="index,follow">
+    <meta name="author" content="Shree Govind Jee" />
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://imgovindjee.github.io/site/">
+    <meta property="og:title" content="Shree Govind Jee">
+    <meta property="og:description"
+        content="Explore Shree Govind Jee's passion, apps, education, work experiences, skills, and more on his official website. Discover code samples and achievements in tech.">
+    <meta property="og:image" content="../assets/images/profile/tab_icon.png">
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://imgovindjee.github.io/site/">
+    <meta property="twitter:title" content="Shree Govind Jee">
+    <meta property="twitter:description"
+        content="Explore Shree Govind Jee's passion, apps, education, work experiences, skills, and more on his official website. Discover code samples and achievements in tech.">
+    <meta property="twitter:image" content="../assets/images/tab_icon.png">
+
+
+    <!-- CDN's -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.6.2"></script>
+
+
+    <!-- SCRIPT -->
+    <script type="text/javascript" src="../script/myScript.js"></script>
+    <script type="text/javascript" src="../script/popup.js"></script>
+    <script type="text/javascript" src="../script/loc.js"></script>
+    <script type="text/javascript" src="../script/jsonData/app.js"></script>
+    <script type="text/javascript" src="../script/jsonData/github_repos.js"></script>
+    <script type="text/javascript" src="../script/jsonData/work.js"></script>
+    <script type="text/javascript" src="../script/jsonData/skills.js"></script>
+    <script type="text/javascript" src="../script/jsonData/education_certificate.js"></script>
+    <script type="text/javascript" src="../script/jsonData/highlight.js"></script>
+    <script type="text/javascript" src="../script/jsonData/socialID.js"></script>
+    <script type="text/javascript" src="../script/script2/index.js"></script>
+    <script type="text/javascript" src="../script/script2/search.js"></script>
+    <script type="text/javascript" src="../script/script2/common.js"></script>
+
+    <!-- <script>
+        $(document).ready(() => {
+			initNav()
+			isProfilePage = true
+			let status = (getDarkModeStatus() === "ON" ? true : false)
+			document.getElementById("darkModeSwitch").src = status ? "../assets/images/nav/on.png" : "../assets/images/nav/off.png"
+			darkMode(status)
+			try {
+				document.getElementById("profile_image").style.transition = "transform 2s"
+				document.getElementById("profile_image").style.transform = "scale(1.1)"
+			} catch (e) { }
+			showNotificaionAccordingToMode(status)
+			initializeHighlights()
+
+			window.addEventListener("orientationchange", function () {
+				setTimeout(() => {
+					initializeHighlights()
+				}, 1000);
+			}, false);
+			setKeyListener()
+			validateTheParams()
+			cleanUpBeforeClosingSearch()
+			fillHelpInfo()
+			document.getElementById('loc').innerHTML = Math.round(loc).toLocaleString("en-IN")
+		})
+
+		const validateTheParams = () => {
+			let highlightName = location.search.slice(1)
+			if (highlightName.trim() != "") {
+				try {
+					if (highlights[highlightName] != null) {
+						openHighlight(highlightName)
+						history.replaceState({}, null, 'index.html')
+					}
+				} catch (e) { }
+			}
+		}
+
+		$.mobile.loading().hide()
+
+		const initializeHighlights = () => {
+			let ringsHTMLText = ""
+			let namesHTMLText = ""
+			let counter = 0
+			for (let [key, value] of Object.entries(highlights)) {
+				counter++
+				ringsHTMLText += '<td id="StoryItem"><div id="outerStoryRing" onclick=\'openHighlight("' + key + '")\'><div id="middleStory"><img src="../assets/images/highlights/highlightscover/' + value.highlightCoverImage + '" style="height: 57px;width: 57px;border-radius: 100px;" /></div></div></td>'
+				namesHTMLText += '<td id="StoryItem" class="my_text">' + value.highlightName + '</td>'
+			}
+
+			let highlightsHTMLText = "<tr>" + ringsHTMLText + "</tr><tr>" + namesHTMLText + "</tr>"
+			document.getElementById("StoryTable").style.width = (counter * 95) + "px"
+			document.getElementById('StoryTable').innerHTML = highlightsHTMLText
+			if (!isMobile()) {
+				document.getElementById("nextImageBtn").style.marginRight = "10px"
+				document.getElementById("prevImageBtn").style.marginLeft = "10px"
+			}
+		}
+
+
+		let storyCounter = 0
+		let currentHighlightObj = null
+		let hightlightTimeout = null
+		let currentHightlightLocation = null
+		let currentHighlightName = null
+		const openHighlight = highlightId => {
+			currentHighlightName = highlightId
+			currentHighlightObj = highlights[highlightId]
+			validateLocationVisibilty(true)
+			showHighlightTitle(currentHighlightObj.highlightName, true)
+			hightlightTimeout = setTimeout(() => {
+				showHighlightTitle("", false)
+			}, 5000)
+			openImageDiv()
+			validateForHighlightNavButtons()
+			setImageOrVideo(currentHighlightObj.stories[storyCounter])
+			isStoryOpen = true
+		}
+
+		const validateLocationVisibilty = isFirstTimeLoad => {
+			currentHightlightLocation = currentHighlightObj.location
+			document.getElementById("locationBtn").style.visibility = "hidden"
+			if (currentHightlightLocation != null) {
+				let delayTime = isFirstTimeLoad ? 0 : 500
+				setTimeout(() => {
+					document.getElementById("locationBtn").style.visibility = "visible"
+					document.getElementById("locationText").innerHTML = currentHightlightLocation.locationText
+				}, delayTime);
+				return
+			}
+			document.getElementById("locationBtn").style.visibility = "hidden"
+		}
+
+		const setImageOrVideo = story => {
+			if (story.type == "img") {
+				document.getElementById("ImageVideoConatainer").innerHTML = '<img id="StoryImage" src="../assets/images/highlights/stories/' + story.src + '" loading="lazy" />'
+				document.getElementById("StoryImage").style.height = "100vh"
+			} else {
+				document.getElementById("ImageVideoConatainer").innerHTML = '<video id="StoryImage" src="../assets/images/highlights/stories/' + story.src + '" controls loop autoplay>This browser does not support video.</video>'
+			}
+
+			if (isMobile()) {
+				if (!isPortrait()) {
+					document.getElementById("StoryImage").style.height = "100vh"
+					document.getElementById("HighlightTitle").style.fontSize = "12px"
+				} else {
+					let storyImageObj = document.getElementById("StoryImage").style
+					storyImageObj.height = "100vh"
+					storyImageObj.width = "100vw"
+					storyImageObj.objectFit = "cover"
+				}
+			} else {
+				document.getElementById("StoryImage").style.height = "100vh"
+			}
+		}
+
+		const openImageDiv = () => {
+			const imageDivStyle = document.getElementById("ImageDiv").style
+			imageDivStyle.height = "100vh"
+			imageDivStyle.width = "100vw"
+			imageDivStyle.marginTop = "0vh"
+			imageDivStyle.marginBottom = "0vh"
+			imageDivStyle.marginRight = "0vw"
+			imageDivStyle.marginLeft = "0vw"
+			imageDivStyle.opacity = "1.0"
+		}
+
+		const closeImageDiv = () => {
+			storyCounter = 0
+			currentHighlightObj = null
+			currentHighlightName = null
+			clearTimeout(hightlightTimeout)
+			const imageDivStyle = document.getElementById("ImageDiv").style
+			imageDivStyle.height = "0vh"
+			imageDivStyle.width = "0vw"
+			imageDivStyle.marginTop = "50vh"
+			imageDivStyle.marginBottom = "50vh"
+			imageDivStyle.marginRight = "50vw"
+			imageDivStyle.marginLeft = "50vw"
+			imageDivStyle.opacity = "0.3"
+			setTimeout(() => {
+				document.getElementById("ImageVideoConatainer").innerHTML = ""
+			}, 300)
+			isStoryOpen = false
+		}
+
+		const next = () => {
+			storyCounter++
+			validateForHighlightNavButtons()
+			if (storyCounter > currentHighlightObj.stories.length - 1) {
+				storyCounter = 0
+				currentHighlightName = currentHighlightObj.nextHighlightID
+				currentHighlightObj = highlights[currentHighlightObj.nextHighlightID]
+				showHighlightTitle("", false)
+				clearTimeout(hightlightTimeout)
+				nextHighlightAnim()
+				validateLocationVisibilty(false)
+				showHighlightTitle(currentHighlightObj.highlightName, true)
+				hightlightTimeout = setTimeout(() => {
+					showHighlightTitle("", false)
+				}, 5000)
+			}
+			setImageOrVideo(currentHighlightObj.stories[storyCounter])
+		}
+
+		const previous = () => {
+			storyCounter--
+			validateForHighlightNavButtons()
+			if (storyCounter < 0) {
+				currentHighlightName = currentHighlightObj.previousHighlightID
+				currentHighlightObj = highlights[currentHighlightObj.previousHighlightID]
+				storyCounter = currentHighlightObj.stories.length - 1
+				showHighlightTitle("", false)
+				clearTimeout(hightlightTimeout)
+				prevHighlightAnim()
+				validateLocationVisibilty(false)
+			}
+			setImageOrVideo(currentHighlightObj.stories[storyCounter])
+		}
+
+		const validateForHighlightNavButtons = () => {
+			if (currentHighlightObj.nextHighlightID == null && storyCounter >= (currentHighlightObj.stories.length - 1)) {
+				document.getElementById("nextBtn").style.display = "none"
+			} else {
+				document.getElementById("nextBtn").style.display = "block"
+			}
+			if (currentHighlightObj.previousHighlightID == null && storyCounter <= 0) {
+				document.getElementById("previousBtn").style.display = "none"
+			} else {
+				document.getElementById("previousBtn").style.display = "block"
+			}
+		}
+
+		const nextHighlightAnim = () => {
+			const imageDivStyle = document.getElementById("ImageDiv").style
+			imageDivStyle.width = "0vw"
+			setTimeout(() => {
+				imageDivStyle.right = "0"
+				imageDivStyle.width = "100vw"
+				setTimeout(() => { imageDivStyle.right = "auto" }, 500)
+			}, 200)
+		}
+
+		const prevHighlightAnim = () => {
+			const imageDivStyle = document.getElementById("ImageDiv").style
+			imageDivStyle.right = "0"
+			imageDivStyle.width = "0vw"
+			setTimeout(() => {
+				imageDivStyle.right = "auto"
+				imageDivStyle.width = "100vw"
+			}, 200)
+		}
+
+		const showHighlightTitle = (titleText, show) => {
+			let highlighttitleObj = document.getElementById("HighlightTitle")
+			highlighttitleObj.innerHTML = titleText
+			if (show) {
+				highlighttitleObj.style.display = "block"
+				highlighttitleObj.style.opacity = "1"
+			} else {
+				highlighttitleObj.style.opacity = "0"
+				highlighttitleObj.style.display = "none"
+			}
+		}
+
+		if (isMobile()) {
+			$(document).on("pagecreate", "#pageone", () => {
+				$("#ImageVideoConatainer").on("swiperight", previousStoryViaTouchOrKey)
+				$("#ImageVideoConatainer").on("swipeleft", nextStoryViaTouchOrKey)
+				$("#ImageVideoConatainer").on("swipedown", closeImageDiv)
+			})
+		}
+
+		const showLocationOnMap = () => {
+			document.getElementById('locationDialog').style.visibility = "visible"
+			if (isSafari() && isMobile()) {
+				document.getElementById('locationInnerDialog').style.height = "80vh"
+				document.getElementById('locationInnerDialog').style.marginTop = "10vh"
+				document.getElementById('locationInnerDialog').style.marginBottom = "10vh"
+			} else {
+				document.getElementById('locationInnerDialog').style.height = "90vh"
+				document.getElementById('locationInnerDialog').style.marginTop = "5vh"
+				document.getElementById('locationInnerDialog').style.marginBottom = "5vh"
+			}
+			document.getElementById('locationInnerDialog').style.width = "90vw"
+			document.getElementById('locationInnerDialog').style.marginLeft = "5vw"
+			document.getElementById('locationInnerDialog').style.marginRight = "5vw"
+			setTimeout(() => {
+				if (isMapOpen) {
+					document.getElementById('locationMap').src = currentHightlightLocation.locationLink
+					const collection = document.getElementsByClassName("locationDialogButton")
+					collection[0].style.visibility = "visible"
+					collection[1].style.visibility = "visible"
+					collection[2].style.visibility = "visible"
+					collection[3].style.visibility = "visible"
+				}
+			}, 800);
+			isMapOpen = true
+		}
+
+		const closeLocationOnMap = () => {
+			isMapOpen = false
+			document.getElementById('locationDialog').style.visibility = "visible"
+			document.getElementById('locationInnerDialog').style.height = "0vh"
+			document.getElementById('locationInnerDialog').style.width = "0vw"
+			document.getElementById('locationInnerDialog').style.marginLeft = "50vw"
+			document.getElementById('locationInnerDialog').style.marginRight = "50vw"
+			document.getElementById('locationInnerDialog').style.marginTop = "50vh"
+			document.getElementById('locationInnerDialog').style.marginBottom = "50vh"
+			document.getElementById('locationMap').src = 'about:blank'
+			document.getElementById('locationDialog').style.visibility = "hidden"
+			const collection = document.getElementsByClassName("locationDialogButton")
+			collection[0].style.visibility = "hidden"
+			collection[1].style.visibility = "hidden"
+			collection[2].style.visibility = "hidden"
+			collection[3].style.visibility = "hidden"
+		}
+
+		const shareMapLink = () => {
+			let txt = 'Shree Govind Jee | Here is the link to the ' + currentHighlightObj.highlightName + ' location'
+			shareLink(txt, currentHightlightLocation.locationDetailsLink, 'Map location has been copied', 'Unable to copy map location')
+		}
+
+		const shareHighlight = () => {
+			let txt = 'Check out Shree Govind Jee\'s highlight - ' + currentHighlightObj.highlightName
+			shareLink(txt, 'https://imgovindjee.github.io/site?' + currentHighlightName, 'Highlight link has been copied', 'Unable to copy highlight link')
+		}
+    </script> -->
+    <script type="text/javascript" src="../script/htmlJs/index.js"></script>
+
+
+    <!-- STYLE -->
+    <link rel="stylesheet" type="text/css" href="../style/popup.css">
+    <link rel="stylesheet" type="text/css" href="../style/common.css">
+    <link rel="stylesheet" type="text/css" href="../style/style.css">
+    <link rel="stylesheet" type="text/css" href="../style/index.css">
+
+
+    <title>Shree Govind Jee</title>
+    <link rel="icon" href="../assets/images/profile/tab_icon.png" type="image/x-icon">
+</head>
+
+
+
+<body class="page_background" data-role="page" id="pageone" onbeforeunload="indexUnLoad()">
+
+    <div id="searchDialog"
+        style="background-color: #121212F0; position: fixed; z-index: 6000; height: 100vh; width: 100vw; padding-bottom: 10vh; visibility: hidden; opacity: 0; transition: 1s;">
+        <div style="height: 10vh;">
+            <span style="right: 0; margin-right: 10px; margin-top: 10px; position: absolute; cursor: pointer;"
+                onclick="closeSearchDialog()">
+                <img src="../assets/images/highlights/icons/dark/close.png" alt="shreegovindjee"
+                    style="width: 22px; height: 22px;">
+            </span>
+        </div>
+
+        <div class="my_fade_in" id="searchSuggestion" onclick="onSearchSuggestionClick()"
+            style="width: fit-content;margin-left: 5vw;margin-right: 5vw;color: #DEE4E7;background-color: #d3d2d21a;border-color: #ffefb9;border-width: 0.2px;border-style: solid;margin-bottom: 15px;border-radius: 100px;padding-left: 10px;padding-right:15px;font-size: 13px;display: none;cursor: pointer;">
+            <i>
+                Searching for
+                <b id="searchSuggestionSection"></b>
+                ?
+            </i>
+        </div>
+
+        <input type="text" class="my_fade_in"
+            style="background-color: #FDFDFD1A; width: 90vw;margin-left: 5vw;color: #DEE4E7;border:0;height: 36px;border-radius: 100px;padding-left: 20px;margin-bottom: 20px;"
+            placeholder="Search anything..." id="searchTermTB" onkeyup="getSearchResults(this)" />
+
+        <div class="dropdown my_fade_in">
+            <button class="my_search_dropdown"
+                style="background-color: #FDFDFD1A; border: none;outline: none;margin-left: 5vw;width: 90vw;border-radius: 100px;text-align: start;height: 36px;padding-left: 20px;"
+                type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="dropDownValue">
+                ▼ Search in All
+            </button>
+            <div class="dropdown-menu my_fade_in" aria-labelledby="dropdownMenu2"
+                style="background-color: #121212EA;border-radius: 10px;" id="searchDropDownId">
+            </div>
+        </div>
+        <div style="margin-left: 5vw;width: 90vw;overflow-y: auto;height: calc(86% - 92px);margin-top: 10px;padding-top: 10px;padding-bottom: 10px; padding-left: 10px; padding-right: 10px;"
+            id="searchResultArea"></div>
+    </div>
+
+    <div id="helpDialog" class="my_fade_in"
+        style="background-color: #121212F0;position: fixed;z-index: 5000;height: 100vh;width: 100vw;padding-bottom: 10vh;visibility: hidden;opacity: 0; transition: 1s;">
+        <div style="height: 10vh;">
+            <span style="right:0;margin-right:10px;margin-top:10px;position: absolute;cursor: pointer;"
+                onclick="closeHelphDialog()">
+                <img src="../assets/images/highlights/icons/dark/close.png" style="width: 22px;height: 22px;" />
+            </span>
+        </div>
+        <div style="overflow-y: auto;scroll-behavior: auto;height: 90vh;padding-bottom: 10px;color: #FDFDFD;"
+            id="helpInfoText"></div>
+    </div>
+
+
+    <div id="ImageDiv">
+
+        <div style="background-color: #121212DE;position: absolute;z-index: 4000;height: 100vh;width: 100vw;visibility: hidden;"
+            id="locationDialog">
+            <div id="locationInnerDialog"
+                style="height: 0vh;width: 0vw;margin-top: 50vh;margin-bottom: 50vh;margin-left: 50vw;margin-right: 50vw;border-radius: 10px;-webkit-box-shadow: 0px 0px 2px 0px rgba(112,112,112,1); -moz-box-shadow: 0px 0px 2px 0px rgba(112,112,112,1); box-shadow: 0px 0px 2px 0px rgba(112,112,112,1);transition: 1s;">
+                <iframe id="locationMap"
+                    style="height: calc(100% - 68px);width: 90vw;display:block;border-top-right-radius: 10px;;border-top-left-radius: 10px;transition: 1s;"
+                    allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" frameBorder="0"
+                    src="about:blank"></iframe>
+                <div style="transition: 1s;background-color: var(--translucent_page_bg);height: 68px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;"
+                    id="locationBottomDiv">
+                    <img class="locationDialogButton" src="../assets/images/highlights/icons/common/google_map.png"
+                        onclick="window.location.href = currentHightlightLocation.locationDetailsLink"
+                        style="width: 34px;height: 34px;cursor: pointer;" />
+                    <img class="locationDialogButton"
+                        src="../assets/images/highlights/icons/common/google_earth_icon.png"
+                        onclick="window.location.href = currentHightlightLocation.locationGoogleEarthLink"
+                        style="width: 34px;height: 34px;cursor: pointer;margin-left: 14px;" />
+                    <img class="locationDialogButton" src="../assets/images/highlights/icons/common/share_map.png"
+                        onclick="shareMapLink()" style="width: 34px;height: 34px;cursor: pointer;margin-left: 12px;" />
+                    <img class="locationDialogButton" src="../assets/images/highlights/icons/common/close_map.png"
+                        onclick="closeLocationOnMap()"
+                        style="width: 34px;height: 34px;cursor: pointer;margin-left: 12px;" />
+                </div>
+            </div>
+        </div>
+
+        <span id="locationBtn"
+            style="left:0;margin-left:10px;margin-top:12px;position: absolute;z-index: 3000; cursor: pointer;
+		background-color:var(--dim_rev_page_bg);padding-top: 2px;padding-bottom: 2px;padding-left: 4px;padding-right: 8px;
+		border-radius: 100px;max-width: 60vw;text-overflow: ellipsis;white-space: nowrap;font-size: 13px;overflow: hidden;color: var(--dim_rev_text_color);"
+            onclick="showLocationOnMap()">
+            <img src="../assets/images/highlights/icons/common/location.png" style="width: 18px;height: 18px;" />
+            <span id="locationText"></span>
+        </span>
+
+        <span style="right:0;margin-right:10px;margin-top:10px;position: absolute;z-index: 3000; cursor: pointer;"
+            onclick="closeImageDiv()">
+            <img src="../assets/images/highlights/icons/light/close.png" id="closeImageBtn"
+                style="width: 22px;height: 22px;" />
+        </span>
+        <span id="nextBtn"
+            style="padding-top: 60px;padding-bottom: 60px;padding-left: 60px;right:0;margin-right:5px;top: calc(50% - 71px);position: absolute;z-index: 3000; cursor: pointer;display: block"
+            class="my_text" onclick="next()">
+            <img src="../assets/images/highlights/icons/light/next.png" id="nextImageBtn"
+                style="width: 22px;height: 22px;margin-right: 5px;" />
+        </span>
+        <span id="previousBtn"
+            style="padding-top: 60px;padding-bottom: 60px;padding-right: 60px;font-size: 30px;left:0;margin-left:5px;top: calc(50% - 71px);position: absolute;z-index: 3000; cursor: pointer;display: block"
+            class="my_text" onclick="previous()">
+            <img src="../assets/images/highlights/icons/light/prev.png" id="prevImageBtn"
+                style="width: 22px;height: 22px;margin-left: 5px;" />
+        </span>
+        <span style="right:0;margin-right:42px;margin-top:10px;position: absolute;z-index: 3000; cursor: pointer;"
+            onclick="shareHighlight()">
+            <img src="../assets/images/highlights/icons/dark/share.png" style="width: 22px;height: 22px;"
+                id="shareImageBtn" />
+        </span>
+        <div id="ImageVideoConatainer"></div>
+        <span id="HighlightTitle"
+            style="transition: 3s;opacity:0;font-size: 20px;bottom:70px;position: absolute;z-index: 3000; cursor: pointer;text-shadow: 0 0 3px #000000;left: 0%;right: 0%; text-align: center;color:white;display: block"></span>
+    </div>
+
+
+
+
+    <!-- NAV_BAR -->
+    <nav class=" navbar sticky-top navbar-expand-lg navbar-dark nav_bar_background">
+        <a class="navbar-brand" href="#" onclick="openSearchDialog()">
+            Shree Govind Jee
+        </a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link">
+                        Profile
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="window.location.href = 'education_certifications.html'"
+                        style="cursor: pointer;">
+                        Education & Certifications
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" onclick="window.location.href = 'work_exp.html'" style="cursor: pointer;">
+                        Work Experience
+                    </a>
+                </li>
+                <li class=" nav-item">
+                    <a class="nav-link" onclick="window.location.href = 'skills.html'" style="cursor: pointer;">
+                        Skills
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="apps" onclick="window.location.href = 'apps.html'" style="cursor: pointer;">
+                        Apps
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="github_repo" onclick="window.location.href = 'github_repos.html'"
+                        style="cursor: pointer;">
+                        GitHub Repositories
+                    </a>
+                </li>
+                <li class="nav-item active" id="helpLabel"></li>
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li class="nav-item active" id="darkModeLabel" style="cursor: pointer;"></li>
+            </ul>
+        </div>
+    </nav>
+
+
+
+
+
+    <!-- CRAUSEL'S -->
+    <div id="demo" class="carousel slide shadow" data-ride="carousel" width="100%" height="300px">
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="../assets/images/coverpics/C1.png" style="object-fit: cover"
+                    alt="Shree Govind Jee Carousel Image 1" width="100%" height="300px">
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/images/coverpics/C2.jpg" style="object-fit: cover"
+                    alt="Shree Govind Jee Carousel Image 2" width="100%" height="300px">
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/images/coverpics/C3.png" style="object-fit: cover"
+                    alt="Shree Govind Jee Carousel Image 3" width="100%" height="300px">
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/images/coverpics/C4.jpg" style="object-fit: cover"
+                    alt="Shree Govind Jee Carousel Image 4" width="100%" height="300px">
+            </div>
+            <div class="carousel-item">
+                <img src="../assets/images/coverpics/C5.jpg" style="object-fit: cover"
+                    alt="Shree Govind Jee Carousel Image 5" width="100%" height="300px">
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- PROFILE -->
+    <div class="about_container">
+        <img src="../assets/images/profile/profile_image.jpeg" alt="Shree Govind Jee" width="225px" height="225px"
+            id="profile_image">
+    </div>
+
+
+
+    <div style="margin-top: 70px">
+
+        <!-- ABOUT MYSELF -->
+        <div class=" container my_fade_in" style="padding-right: 30px;padding-left:30px;text-align: center">
+            <i class="my_text">
+                It's a pleasure to have you here. Thank you for taking the time. I'm Shree
+                Govind Jee,
+                an undergradute Student &
+                I'm passionate about developing software applications. Moreover, towards SDE & Full
+                Stack development.
+                On this
+                website you can see all the apps I've developed.
+                On top of that, this website additionally shows off my Education, Work Experience, Skills, and
+                other
+                coding practices in shape of Github Repositories. I'd appreciate it if you could have a peek at
+                this
+                site.
+            </i>
+        </div>
+
+
+
+        <!-- SOCIAL LINKS -->
+        <div class="container my_fade_in" style="margin-top: 30px">
+            <div class="row" style="justify-content: center">
+                <div class="col-">
+                    <img src="../assets/images/socials/light/instagram.png" alt="Shree Govind Jee's Instagram ID"
+                        width="40px" height="40px" class="social_icon" id="insta"
+                        onclick="window.location.href = 'https://www.instagram.com/imgovind_jee/'" />
+                    <img src="../assets/images/socials/light/facebook.png" alt="Shree Govind Jee's Facebook ID"
+                        width="40px" height="40px" class="social_icon" id="facebook"
+                        onclick="window.location.href = 'https://www.facebook.com/govind.jee.3154/'" />
+                    <img src="../assets/images/socials/light/twitter.png" alt="Shree Govind Jee's Twitter ID"
+                        width="40px" height="40px" class="social_icon" id="twitter"
+                        onclick="window.location.href = 'https://x.com/imgovind_jee'" />
+                    <img src="../assets/images/socials/light/linkedin.png" alt="Shree Govind Jee's Linkedin ID"
+                        width="40px" height="40px" class="social_icon" id="linkedin"
+                        onclick="window.location.href = 'https://www.linkedin.com/in/shreegovindjee/'" />
+                    <img src="../assets/images/socials/light/snapchat.png" alt="Shree Govind Jee's Snapchat ID"
+                        width="40px" height="40px" class="social_icon" id="snapchat"
+                        onclick="window.location.href = 'https://www.snapchat.com/add/imgovind_jee'" />
+                </div>
+
+                <div class="col-">
+					<img src="assets/images/socials/light/youtube.png" alt="Shree Govind Jee YouTube ID" width="40px"
+						height="40px" class="social_icon" id="youtube"
+						onclick="window.location.href = 'https://github.com/imgovindjee'" />
+					<img src="assets/images/socials/light/github.png" alt="Shree Govind Jee GitHub ID" width="40px"
+						height="40px" class="social_icon" id="github"
+						onclick="window.location.href = 'https://leetcode.com/u/Shree_Govind_Jee/'" />
+					<img src="assets/images/socials/light/mail.png" alt="Shree Govind Jee Emails ID" width="40px"
+						height="40px" class="social_icon" id="mail" onclick="window.location.href = 'emails.html'" />
+					<img src="assets/images/socials/light/stackoverflow.png" alt="Shree Govind Jee StackOverFlow ID"
+						width="40px" height="40px" class="social_icon" id="stackoverflow"
+						onclick="window.location.href = 'https://stackoverflow.com/'" />
+				</div>
+            </div>
+        </div>
+        <br>
+
+
+        <!-- HIGHLIGHTS SECSTION -->
+        <div class="container">
+            <div class="row my_fade_in"
+                style="overflow: auto;margin-left:0px ;margin-right: 0px; padding-bottom: 5px;margin-top:10px"
+                id="highlightContainer">
+                <table id="StoryTable"></table>
+            </div>
+        </div>
+        <br>
+
+        <div class="container" style="margin-top:10px">
+            <div class="row">
+                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
+                    onclick="window.location.href = 'education_certifications.html'">
+                    <img src=" ../assets/images/profile/education.gif" width="100%" height="auto"
+                        alt="Shree Govind Jee's Education" style="border-radius:5px;" />
+                </div>
+                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
+                    onclick="window.location.href = 'work_exp.html'">
+                    <img src="../assets/images/profile/work.gif" width="100%" height="auto"
+                        alt="Shree Govind Jee's Work Experience" style="border-radius:5px;" loading="lazy" />
+                </div>
+                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
+                    onclick="window.location.href = 'skills.html'">
+                    <img src="../assets/images/profile/skills.gif" width="100%" height="auto"
+                        alt="Shree Govind Jee's Skills" style="border-radius:5px;" loading="lazy" />
+                </div>
+                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
+                    onclick="window.location.href = 'apps.html'">
+                    <img src="../assets/images/profile/apps.gif" width="100%" height="auto"
+                        alt="Apps Developed by Shree Govind Jee" style="border-radius:5px;" loading="lazy" />
+                </div>
+                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
+                    onclick="window.location.href = 'github_repos.html'">
+                    <img src="../assets/images/profile/github.gif" width="100%" height="auto"
+                        alt="Shree Govind Jee's GitHub Repositories" style="border-radius:5px;" loading="lazy" />
+                </div>
+                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
+                    onclick="window.location.href = 'feedback.html'">
+                    <img src="../assets/images/profile/feedback.gif" width="100%" height="auto"
+                        alt="Shree Govind Jee's Website Feedback" style="border-radius:5px;" loading="lazy" />
+                </div>
+            </div>
+        </div>
+
+
+        <br />
+        <div style="width: 100%;text-align: center">
+            <br>
+            <h6 class="my_text">&#169; SHREE GOVIND JEE</h6>
+            <h6 class="my_text" id="loc"></h6>
+        </div>
+        <br />
+    </div>
+
+    <div id="notificaionArea"></div>
+
+</body>
+
+</html>
