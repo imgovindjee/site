@@ -20,13 +20,13 @@
     <meta property="og:title" content="Shree Govind Jee">
     <meta property="og:description"
         content="Explore Shree Govind Jee's passion, apps, education, work experiences, skills, and more on his official website. Discover code samples and achievements in tech.">
-    <meta property="og:image" content="../assets/images/profile/tab_icon.png">
+    <meta property="og:image" content="assets/images/profile/tab_icon.png">
     <meta property="twitter:card" content="summary_large_image">
     <meta property="twitter:url" content="https://imgovindjee.github.io/site/">
     <meta property="twitter:title" content="Shree Govind Jee">
     <meta property="twitter:description"
         content="Explore Shree Govind Jee's passion, apps, education, work experiences, skills, and more on his official website. Discover code samples and achievements in tech.">
-    <meta property="twitter:image" content="../assets/images/tab_icon.png">
+    <meta property="twitter:image" content="assets/images/tab_icon.png">
 
 
     <!-- CDN's -->
@@ -47,26 +47,26 @@
 
 
     <!-- SCRIPT -->
-    <script type="text/javascript" src="/script/myScript.js"></script>
-    <script type="text/javascript" src="/script/popup.js"></script>
-    <script type="text/javascript" src="/script/loc.js"></script>
-    <script type="text/javascript" src="/script/jsonData/app.js"></script>
-    <script type="text/javascript" src="/script/jsonData/github_repos.js"></script>
-    <script type="text/javascript" src="/script/jsonData/work.js"></script>
-    <script type="text/javascript" src="/script/jsonData/skills.js"></script>
-    <script type="text/javascript" src="/script/jsonData/education_certificate.js"></script>
-    <script type="text/javascript" src="/script/jsonData/highlight.js"></script>
-    <script type="text/javascript" src="/script/jsonData/socialID.js"></script>
-    <script type="text/javascript" src="/script/script2/index.js"></script>
-    <script type="text/javascript" src="/script/script2/search.js"></script>
-    <script type="text/javascript" src="/script/script2/common.js"></script>
+    <script type="text/javascript" src="script/myScript.js"></script>
+    <script type="text/javascript" src="script/popup.js"></script>
+    <script type="text/javascript" src="script/loc.js"></script>
+    <script type="text/javascript" src="script/jsonData/app.js"></script>
+    <script type="text/javascript" src="script/jsonData/github_repos.js"></script>
+    <script type="text/javascript" src="script/jsonData/work.js"></script>
+    <script type="text/javascript" src="script/jsonData/skills.js"></script>
+    <script type="text/javascript" src="script/jsonData/education_certificate.js"></script>
+    <script type="text/javascript" src="script/jsonData/highlight.js"></script>
+    <script type="text/javascript" src="script/jsonData/socialID.js"></script>
+    <script type="text/javascript" src="script/script2/index.js"></script>
+    <script type="text/javascript" src="script/script2/search.js"></script>
+    <script type="text/javascript" src="script/script2/common.js"></script>
 
     <!-- <script>
         $(document).ready(() => {
 			initNav()
 			isProfilePage = true
 			let status = (getDarkModeStatus() === "ON" ? true : false)
-			document.getElementById("darkModeSwitch").src = status ? "../assets/images/nav/on.png" : "../assets/images/nav/off.png"
+			document.getElementById("darkModeSwitch").src = status ? "assets/images/nav/on.png" : "assets/images/nav/off.png"
 			darkMode(status)
 			try {
 				document.getElementById("profile_image").style.transition = "transform 2s"
@@ -107,7 +107,7 @@
 			let counter = 0
 			for (let [key, value] of Object.entries(highlights)) {
 				counter++
-				ringsHTMLText += '<td id="StoryItem"><div id="outerStoryRing" onclick=\'openHighlight("' + key + '")\'><div id="middleStory"><img src="../assets/images/highlights/highlightscover/' + value.highlightCoverImage + '" style="height: 57px;width: 57px;border-radius: 100px;" /></div></div></td>'
+				ringsHTMLText += '<td id="StoryItem"><div id="outerStoryRing" onclick=\'openHighlight("' + key + '")\'><div id="middleStory"><img src="assets/images/highlights/highlightscover/' + value.highlightCoverImage + '" style="height: 57px;width: 57px;border-radius: 100px;" /></div></div></td>'
 				namesHTMLText += '<td id="StoryItem" class="my_text">' + value.highlightName + '</td>'
 			}
 
@@ -156,10 +156,10 @@
 
 		const setImageOrVideo = story => {
 			if (story.type == "img") {
-				document.getElementById("ImageVideoConatainer").innerHTML = '<img id="StoryImage" src="../assets/images/highlights/stories/' + story.src + '" loading="lazy" />'
+				document.getElementById("ImageVideoConatainer").innerHTML = '<img id="StoryImage" src="assets/images/highlights/stories/' + story.src + '" loading="lazy" />'
 				document.getElementById("StoryImage").style.height = "100vh"
 			} else {
-				document.getElementById("ImageVideoConatainer").innerHTML = '<video id="StoryImage" src="../assets/images/highlights/stories/' + story.src + '" controls loop autoplay>This browser does not support video.</video>'
+				document.getElementById("ImageVideoConatainer").innerHTML = '<video id="StoryImage" src="assets/images/highlights/stories/' + story.src + '" controls loop autoplay>This browser does not support video.</video>'
 			}
 
 			if (isMobile()) {
@@ -349,18 +349,18 @@
 			shareLink(txt, 'https://imgovindjee.github.io/site?' + currentHighlightName, 'Highlight link has been copied', 'Unable to copy highlight link')
 		}
     </script> -->
-    <script type="text/javascript" src="/script/htmlJs/index.js"></script>
+    <script type="text/javascript" src="script/htmlJs/index.js"></script>
 
 
     <!-- STYLE -->
-    <link rel="stylesheet" type="text/css" href="/style/popup.css">
-    <link rel="stylesheet" type="text/css" href="/style/common.css">
-    <link rel="stylesheet" type="text/css" href="/style/style.css">
-    <link rel="stylesheet" type="text/css" href="/style/index.css">
+    <link rel="stylesheet" type="text/css" href="style/popup.css">
+    <link rel="stylesheet" type="text/css" href="style/common.css">
+    <link rel="stylesheet" type="text/css" href="style/style.css">
+    <link rel="stylesheet" type="text/css" href="style/index.css">
 
 
     <title>Shree Govind Jee</title>
-    <link rel="icon" href="../assets/images/profile/tab_icon.png" type="image/x-icon">
+    <link rel="icon" href="assets/images/profile/tab_icon.png" type="image/x-icon">
 </head>
 
 
@@ -372,7 +372,7 @@
         <div style="height: 10vh;">
             <span style="right: 0; margin-right: 10px; margin-top: 10px; position: absolute; cursor: pointer;"
                 onclick="closeSearchDialog()">
-                <img src="../assets/images/highlights/icons/dark/close.png" alt="shreegovindjee"
+                <img src="assets/images/highlights/icons/dark/close.png" alt="shreegovindjee"
                     style="width: 22px; height: 22px;">
             </span>
         </div>
@@ -409,7 +409,7 @@
         <div style="height: 10vh;">
             <span style="right:0;margin-right:10px;margin-top:10px;position: absolute;cursor: pointer;"
                 onclick="closeHelphDialog()">
-                <img src="../assets/images/highlights/icons/dark/close.png" style="width: 22px;height: 22px;" />
+                <img src="assets/images/highlights/icons/dark/close.png" style="width: 22px;height: 22px;" />
             </span>
         </div>
         <div style="overflow-y: auto;scroll-behavior: auto;height: 90vh;padding-bottom: 10px;color: #FDFDFD;"
@@ -429,16 +429,16 @@
                     src="about:blank"></iframe>
                 <div style="transition: 1s;background-color: var(--translucent_page_bg);height: 68px;border-bottom-left-radius: 10px;border-bottom-right-radius: 10px;"
                     id="locationBottomDiv">
-                    <img class="locationDialogButton" src="../assets/images/highlights/icons/common/google_map.png"
+                    <img class="locationDialogButton" src="assets/images/highlights/icons/common/google_map.png"
                         onclick="window.location.href = currentHightlightLocation.locationDetailsLink"
                         style="width: 34px;height: 34px;cursor: pointer;" />
                     <img class="locationDialogButton"
-                        src="../assets/images/highlights/icons/common/google_earth_icon.png"
+                        src="assets/images/highlights/icons/common/google_earth_icon.png"
                         onclick="window.location.href = currentHightlightLocation.locationGoogleEarthLink"
                         style="width: 34px;height: 34px;cursor: pointer;margin-left: 14px;" />
-                    <img class="locationDialogButton" src="../assets/images/highlights/icons/common/share_map.png"
+                    <img class="locationDialogButton" src="assets/images/highlights/icons/common/share_map.png"
                         onclick="shareMapLink()" style="width: 34px;height: 34px;cursor: pointer;margin-left: 12px;" />
-                    <img class="locationDialogButton" src="../assets/images/highlights/icons/common/close_map.png"
+                    <img class="locationDialogButton" src="assets/images/highlights/icons/common/close_map.png"
                         onclick="closeLocationOnMap()"
                         style="width: 34px;height: 34px;cursor: pointer;margin-left: 12px;" />
                 </div>
@@ -450,30 +450,30 @@
 		background-color:var(--dim_rev_page_bg);padding-top: 2px;padding-bottom: 2px;padding-left: 4px;padding-right: 8px;
 		border-radius: 100px;max-width: 60vw;text-overflow: ellipsis;white-space: nowrap;font-size: 13px;overflow: hidden;color: var(--dim_rev_text_color);"
             onclick="showLocationOnMap()">
-            <img src="../assets/images/highlights/icons/common/location.png" style="width: 18px;height: 18px;" />
+            <img src="assets/images/highlights/icons/common/location.png" style="width: 18px;height: 18px;" />
             <span id="locationText"></span>
         </span>
 
         <span style="right:0;margin-right:10px;margin-top:10px;position: absolute;z-index: 3000; cursor: pointer;"
             onclick="closeImageDiv()">
-            <img src="../assets/images/highlights/icons/light/close.png" id="closeImageBtn"
+            <img src="assets/images/highlights/icons/light/close.png" id="closeImageBtn"
                 style="width: 22px;height: 22px;" />
         </span>
         <span id="nextBtn"
             style="padding-top: 60px;padding-bottom: 60px;padding-left: 60px;right:0;margin-right:5px;top: calc(50% - 71px);position: absolute;z-index: 3000; cursor: pointer;display: block"
             class="my_text" onclick="next()">
-            <img src="../assets/images/highlights/icons/light/next.png" id="nextImageBtn"
+            <img src="assets/images/highlights/icons/light/next.png" id="nextImageBtn"
                 style="width: 22px;height: 22px;margin-right: 5px;" />
         </span>
         <span id="previousBtn"
             style="padding-top: 60px;padding-bottom: 60px;padding-right: 60px;font-size: 30px;left:0;margin-left:5px;top: calc(50% - 71px);position: absolute;z-index: 3000; cursor: pointer;display: block"
             class="my_text" onclick="previous()">
-            <img src="../assets/images/highlights/icons/light/prev.png" id="prevImageBtn"
+            <img src="assets/images/highlights/icons/light/prev.png" id="prevImageBtn"
                 style="width: 22px;height: 22px;margin-left: 5px;" />
         </span>
         <span style="right:0;margin-right:42px;margin-top:10px;position: absolute;z-index: 3000; cursor: pointer;"
             onclick="shareHighlight()">
-            <img src="../assets/images/highlights/icons/dark/share.png" style="width: 22px;height: 22px;"
+            <img src="assets/images/highlights/icons/dark/share.png" style="width: 22px;height: 22px;"
                 id="shareImageBtn" />
         </span>
         <div id="ImageVideoConatainer"></div>
@@ -546,23 +546,23 @@
     <div id="demo" class="carousel slide shadow" data-ride="carousel" width="100%" height="300px">
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="../assets/images/coverpics/C1.png" style="object-fit: cover"
+                <img src="assets/images/coverpics/C1.png" style="object-fit: cover"
                     alt="Shree Govind Jee Carousel Image 1" width="100%" height="300px">
             </div>
             <div class="carousel-item">
-                <img src="../assets/images/coverpics/C2.jpg" style="object-fit: cover"
+                <img src="assets/images/coverpics/C2.jpg" style="object-fit: cover"
                     alt="Shree Govind Jee Carousel Image 2" width="100%" height="300px">
             </div>
             <div class="carousel-item">
-                <img src="../assets/images/coverpics/C3.png" style="object-fit: cover"
+                <img src="assets/images/coverpics/C3.png" style="object-fit: cover"
                     alt="Shree Govind Jee Carousel Image 3" width="100%" height="300px">
             </div>
             <div class="carousel-item">
-                <img src="../assets/images/coverpics/C4.jpg" style="object-fit: cover"
+                <img src="assets/images/coverpics/C4.jpg" style="object-fit: cover"
                     alt="Shree Govind Jee Carousel Image 4" width="100%" height="300px">
             </div>
             <div class="carousel-item">
-                <img src="../assets/images/coverpics/C5.jpg" style="object-fit: cover"
+                <img src="assets/images/coverpics/C5.jpg" style="object-fit: cover"
                     alt="Shree Govind Jee Carousel Image 5" width="100%" height="300px">
             </div>
         </div>
@@ -572,7 +572,7 @@
 
     <!-- PROFILE -->
     <div class="about_container">
-        <img src="../assets/images/profile/profile_image.jpeg" alt="Shree Govind Jee" width="225px" height="225px"
+        <img src="assets/images/profile/profile_image.jpeg" alt="Shree Govind Jee" width="225px" height="225px"
             id="profile_image">
     </div>
 
@@ -604,19 +604,19 @@
         <div class="container my_fade_in" style="margin-top: 30px">
             <div class="row" style="justify-content: center">
                 <div class="col-">
-                    <img src="../assets/images/socials/light/instagram.png" alt="Shree Govind Jee's Instagram ID"
+                    <img src="assets/images/socials/light/instagram.png" alt="Shree Govind Jee's Instagram ID"
                         width="40px" height="40px" class="social_icon" id="insta"
                         onclick="window.location.href = 'https://www.instagram.com/imgovind_jee/'" />
-                    <img src="../assets/images/socials/light/facebook.png" alt="Shree Govind Jee's Facebook ID"
+                    <img src="assets/images/socials/light/facebook.png" alt="Shree Govind Jee's Facebook ID"
                         width="40px" height="40px" class="social_icon" id="facebook"
                         onclick="window.location.href = 'https://www.facebook.com/govind.jee.3154/'" />
-                    <img src="../assets/images/socials/light/twitter.png" alt="Shree Govind Jee's Twitter ID"
+                    <img src="assets/images/socials/light/twitter.png" alt="Shree Govind Jee's Twitter ID"
                         width="40px" height="40px" class="social_icon" id="twitter"
                         onclick="window.location.href = 'https://x.com/imgovind_jee'" />
-                    <img src="../assets/images/socials/light/linkedin.png" alt="Shree Govind Jee's Linkedin ID"
+                    <img src="assets/images/socials/light/linkedin.png" alt="Shree Govind Jee's Linkedin ID"
                         width="40px" height="40px" class="social_icon" id="linkedin"
                         onclick="window.location.href = 'https://www.linkedin.com/in/shreegovindjee/'" />
-                    <img src="../assets/images/socials/light/snapchat.png" alt="Shree Govind Jee's Snapchat ID"
+                    <img src="assets/images/socials/light/snapchat.png" alt="Shree Govind Jee's Snapchat ID"
                         width="40px" height="40px" class="social_icon" id="snapchat"
                         onclick="window.location.href = 'https://www.snapchat.com/add/imgovind_jee'" />
                 </div>
@@ -653,32 +653,32 @@
             <div class="row">
                 <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
                     onclick="window.location.href = 'education_certifications.html'">
-                    <img src=" ../assets/images/profile/education.gif" width="100%" height="auto"
+                    <img src=" assets/images/profile/education.gif" width="100%" height="auto"
                         alt="Shree Govind Jee's Education" style="border-radius:5px;" />
                 </div>
                 <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
                     onclick="window.location.href = 'work_exp.html'">
-                    <img src="../assets/images/profile/work.gif" width="100%" height="auto"
+                    <img src="assets/images/profile/work.gif" width="100%" height="auto"
                         alt="Shree Govind Jee's Work Experience" style="border-radius:5px;" loading="lazy" />
                 </div>
                 <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
                     onclick="window.location.href = 'skills.html'">
-                    <img src="../assets/images/profile/skills.gif" width="100%" height="auto"
+                    <img src="assets/images/profile/skills.gif" width="100%" height="auto"
                         alt="Shree Govind Jee's Skills" style="border-radius:5px;" loading="lazy" />
                 </div>
                 <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
                     onclick="window.location.href = 'apps.html'">
-                    <img src="../assets/images/profile/apps.gif" width="100%" height="auto"
+                    <img src="assets/images/profile/apps.gif" width="100%" height="auto"
                         alt="Apps Developed by Shree Govind Jee" style="border-radius:5px;" loading="lazy" />
                 </div>
                 <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
                     onclick="window.location.href = 'github_repos.html'">
-                    <img src="../assets/images/profile/github.gif" width="100%" height="auto"
+                    <img src="assets/images/profile/github.gif" width="100%" height="auto"
                         alt="Shree Govind Jee's GitHub Repositories" style="border-radius:5px;" loading="lazy" />
                 </div>
                 <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
                     onclick="window.location.href = 'feedback.html'">
-                    <img src="../assets/images/profile/feedback.gif" width="100%" height="auto"
+                    <img src="assets/images/profile/feedback.gif" width="100%" height="auto"
                         alt="Shree Govind Jee's Website Feedback" style="border-radius:5px;" loading="lazy" />
                 </div>
             </div>
