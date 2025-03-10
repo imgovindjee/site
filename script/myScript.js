@@ -22,32 +22,32 @@ const darkMode = (isDarkModeOn) => {
 
         if (isProfilePage) {
             try {
-                document.getElementById("insta").src = "../assets/images/socials/dark/instagram.png"
-                document.getElementById("facebook").src = "../assets/images/socials/dark/facebook.png"
-                document.getElementById("twitter").src = "../assets/images/socials/dark/twitter.png"
-                document.getElementById("linkedin").src = "../assets/images/socials/dark/linkedin.png"
-                document.getElementById("snapchat").src = "../assets/images/socials/dark/snapchat.png"
-                document.getElementById("youtube").src = "../assets/images/socials/dark/youtube.png"
-                document.getElementById("mail").src = "../assets/images/socials/dark/mail.png"
-                document.getElementById("github").src = "../assets/images/socials/dark/github.png"
-                document.getElementById("stackoverflow").src = "../assets/images/socials/dark/stackoverflow.png"
+                document.getElementById("insta").src = "assets/images/socials/dark/instagram.png"
+                document.getElementById("facebook").src = "assets/images/socials/dark/facebook.png"
+                document.getElementById("twitter").src = "assets/images/socials/dark/twitter.png"
+                document.getElementById("linkedin").src = "assets/images/socials/dark/linkedin.png"
+                document.getElementById("snapchat").src = "assets/images/socials/dark/snapchat.png"
+                document.getElementById("youtube").src = "assets/images/socials/dark/youtube.png"
+                document.getElementById("mail").src = "assets/images/socials/dark/mail.png"
+                document.getElementById("github").src = "assets/images/socials/dark/github.png"
+                document.getElementById("stackoverflow").src = "assets/images/socials/dark/stackoverflow.png"
             } catch (error) { }
 
             try {
-                document.getElementById("closeImageBtn").src = "../assets/images/highlights/icons/dark/close.png"
-                document.getElementById("prevImageBtn").src = "../assets/images/highlights/icons/dark/prev.png"
-                document.getElementById("nextImageBtn").src = "../assets/images/highlights/icons/dark/next.png"
-                document.getElementById("shareImageBtn").src = "../assets/images/highlights/icons/dark/share.png"
+                document.getElementById("closeImageBtn").src = "assets/images/highlights/icons/dark/close.png"
+                document.getElementById("prevImageBtn").src = "assets/images/highlights/icons/dark/prev.png"
+                document.getElementById("nextImageBtn").src = "assets/images/highlights/icons/dark/next.png"
+                document.getElementById("shareImageBtn").src = "assets/images/highlights/icons/dark/share.png"
             }
             catch (error) { }
         } else {
             try {
-                document.getElementById("closeImageBtn").src = "../assets/images/highlights/icons/dark/close.png"
+                document.getElementById("closeImageBtn").src = "assets/images/highlights/icons/dark/close.png"
             } catch (error) { }
         }
 
         try {
-            $(".mgithub-icon").attr("src", "../assets/images/icons/github_white_icon.png")
+            $(".mgithub-icon").attr("src", "assets/images/icons/github_white_icon.png")
         }
         catch (error) { }
     } else {
@@ -70,32 +70,32 @@ const darkMode = (isDarkModeOn) => {
 
         if (isProfilePage) {
             try {
-                document.getElementById("insta").src = "../assets/images/socials/light/instagram.png"
-                document.getElementById("facebook").src = "../assets/images/socials/light/facebook.png"
-                document.getElementById("twitter").src = "../assets/images/socials/light/twitter.png"
-                document.getElementById("linkedin").src = "../assets/images/socials/light/linkedin.png"
-                document.getElementById("snapchat").src = "../assets/images/socials/light/snapchat.png"
-                document.getElementById("youtube").src = "../assets/images/socials/light/youtube.png"
-                document.getElementById("github").src = "../assets/images/socials/light/github.png"
-                document.getElementById("mail").src = "../assets/images/socials/light/mail.png"
-                document.getElementById("stackoverflow").src = "../assets/images/socials/light/stackoverflow.png"
+                document.getElementById("insta").src = "assets/images/socials/light/instagram.png"
+                document.getElementById("facebook").src = "assets/images/socials/light/facebook.png"
+                document.getElementById("twitter").src = "assets/images/socials/light/twitter.png"
+                document.getElementById("linkedin").src = "assets/images/socials/light/linkedin.png"
+                document.getElementById("snapchat").src = "assets/images/socials/light/snapchat.png"
+                document.getElementById("youtube").src = "assets/images/socials/light/youtube.png"
+                document.getElementById("github").src = "assets/images/socials/light/github.png"
+                document.getElementById("mail").src = "assets/images/socials/light/mail.png"
+                document.getElementById("stackoverflow").src = "assets/images/socials/light/stackoverflow.png"
             } catch (error) { }
 
             try {
-                document.getElementById("closeImageBtn").src = "../assets/images/highlights/icons/light/close.png"
-                document.getElementById("prevImageBtn").src = "../assets/images/highlights/icons/light/prev.png"
-                document.getElementById("nextImageBtn").src = "../assets/images/highlights/icons/light/next.png"
-                document.getElementById("shareImageBtn").src = "../assets/images/highlights/icons/light/share.png"
+                document.getElementById("closeImageBtn").src = "assets/images/highlights/icons/light/close.png"
+                document.getElementById("prevImageBtn").src = "assets/images/highlights/icons/light/prev.png"
+                document.getElementById("nextImageBtn").src = "assets/images/highlights/icons/light/next.png"
+                document.getElementById("shareImageBtn").src = "assets/images/highlights/icons/light/share.png"
             }
             catch (error) { }
         } else {
             try {
-                document.getElementById("closeImageBtn").src = "../assets/images/highlights/icons/light/close.png"
+                document.getElementById("closeImageBtn").src = "assets/images/highlights/icons/light/close.png"
             } catch (error) { }
         }
 
         try {
-            $(".mgithub-icon").attr("src", "../assets/images/icons/github_icon.png")
+            $(".mgithub-icon").attr("src", "assets/images/icons/github_icon.png")
         }
         catch (error) { }
     }
@@ -105,11 +105,11 @@ const darkMode = (isDarkModeOn) => {
 
 const setViewDarkModeAndHelpOption = () => {
     if (window.innerWidth <= 991) {
-        document.getElementById("darkModeLabel").innerHTML = '<a class="nav-link"><span id="modeInfoText">Switch to dark mode</span> <img src="../assets/images/nav/off.png" style="margin-left: 5px" width="20" height="20" class="d-inline-block align-center" alt="Shree Govind Jee" id="darkModeSwitch" onclick="setDarkModeStatus()" /><span class="sr-only">(current)</span></a>'
-        document.getElementById("helpLabel").innerHTML = '<a class="nav-link" onclick="openHelpDialog()" style="cursor: pointer;">Help & Shortcuts <img src="../assets/images/nav/help.png" height="19" width="19" style="margin-left: 4px" /> </a>'
+        document.getElementById("darkModeLabel").innerHTML = '<a class="nav-link"><span id="modeInfoText">Switch to dark mode</span> <img src="assets/images/nav/off.png" style="margin-left: 5px" width="20" height="20" class="d-inline-block align-center" alt="Shree Govind Jee" id="darkModeSwitch" onclick="setDarkModeStatus()" /><span class="sr-only">(current)</span></a>'
+        document.getElementById("helpLabel").innerHTML = '<a class="nav-link" onclick="openHelpDialog()" style="cursor: pointer;">Help & Shortcuts <img src="assets/images/nav/help.png" height="19" width="19" style="margin-left: 4px" /> </a>'
     } else {
-        document.getElementById("darkModeLabel").innerHTML = '<img src="../assets/images/nav/off.png" width="25" height="25" class="align-center" alt="Shree Govind Jee" id="darkModeSwitch" onclick="setDarkModeStatus()" />'
-        document.getElementById("helpLabel").innerHTML = '<a class="nav-link" onclick="openHelpDialog()" style="cursor: pointer;"><img src="../assets/images/nav/help.png" height="23" width="23" /></a>'
+        document.getElementById("darkModeLabel").innerHTML = '<img src="assets/images/nav/off.png" width="25" height="25" class="align-center" alt="Shree Govind Jee" id="darkModeSwitch" onclick="setDarkModeStatus()" />'
+        document.getElementById("helpLabel").innerHTML = '<a class="nav-link" onclick="openHelpDialog()" style="cursor: pointer;"><img src="assets/images/nav/help.png" height="23" width="23" /></a>'
     }
 }
 
@@ -150,7 +150,7 @@ const setDarkModeStatus = () => {
             localStorage.setItem("ShreeGovindJeeDarkMode", "ON")
         }
         let status = (getDarkModeStatus() === "ON" ? true : false)
-        document.getElementById("darkModeSwitch").src = status ? "../assets/images/nav/on.png" : "../assets/images/nav/off.png"
+        document.getElementById("darkModeSwitch").src = status ? "assets/images/nav/on.png" : "assets/images/nav/off.png"
         darkMode(status)
     } else {
         alert("Sorry Dark Mode not supported.")

@@ -2,7 +2,7 @@ $(document).ready(() => {
     initNav()
     isProfilePage = true
     let status = (getDarkModeStatus() === "ON" ? true : false)
-    document.getElementById("darkModeSwitch").src = status ? "../assets/images/nav/on.png" : "../assets/images/nav/off.png"
+    document.getElementById("darkModeSwitch").src = status ? "assets/images/nav/on.png" : "assets/images/nav/off.png"
     darkMode(status)
     try {
         document.getElementById("profile_image").style.transition = "transform 2s"
@@ -43,7 +43,7 @@ const initializeHighlights = () => {
     let counter = 0
     for (let [key, value] of Object.entries(highlights)) {
         counter++
-        ringsHTMLText += '<td id="StoryItem"><div id="outerStoryRing" onclick=\'openHighlight("' + key + '")\'><div id="middleStory"><img src="../assets/images/highlights/highlightscover/' + value.highlightCoverImage + '" style="height: 57px;width: 57px;border-radius: 100px;" /></div></div></td>'
+        ringsHTMLText += '<td id="StoryItem"><div id="outerStoryRing" onclick=\'openHighlight("' + key + '")\'><div id="middleStory"><img src="assets/images/highlights/highlightscover/' + value.highlightCoverImage + '" style="height: 57px;width: 57px;border-radius: 100px;" /></div></div></td>'
         namesHTMLText += '<td id="StoryItem" class="my_text">' + value.highlightName + '</td>'
     }
 
@@ -92,10 +92,10 @@ const validateLocationVisibilty = isFirstTimeLoad => {
 
 const setImageOrVideo = story => {
     if (story.type == "img") {
-        document.getElementById("ImageVideoConatainer").innerHTML = '<img id="StoryImage" src="../assets/images/highlights/stories/' + story.src + '" loading="lazy" />'
+        document.getElementById("ImageVideoConatainer").innerHTML = '<img id="StoryImage" src="assets/images/highlights/stories/' + story.src + '" loading="lazy" />'
         document.getElementById("StoryImage").style.height = "100vh"
     } else {
-        document.getElementById("ImageVideoConatainer").innerHTML = '<video id="StoryImage" src="../assets/images/highlights/stories/' + story.src + '" controls loop autoplay>This browser does not support video.</video>'
+        document.getElementById("ImageVideoConatainer").innerHTML = '<video id="StoryImage" src="assets/images/highlights/stories/' + story.src + '" controls loop autoplay>This browser does not support video.</video>'
     }
 
     if (isMobile()) {

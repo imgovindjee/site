@@ -1,7 +1,7 @@
 $(document).ready(() => {
     initNav()
     let status = (getDarkModeStatus() === "ON" ? true : false)
-    document.getElementById("darkModeSwitch").src = status ? "../assets/img/nav/on.png" : "../assets/img/nav/off.png"
+    document.getElementById("darkModeSwitch").src = status ? "assets/img/nav/on.png" : "assets/img/nav/off.png"
     darkMode(status)
     setSkills()
     setTimeout(() => {

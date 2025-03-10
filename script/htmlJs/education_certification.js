@@ -1,7 +1,7 @@
 $(document).ready(() => {
     initNav()
     let status = (getDarkModeStatus() === "ON" ? true : false)
-    document.getElementById("darkModeSwitch").src = status ? "../assets/images/nav/on.png" : "../assets/images/nav/off.png"
+    document.getElementById("darkModeSwitch").src = status ? "assets/images/nav/on.png" : "assets/images/nav/off.png"
     darkMode(status)
     document.getElementById('mainDiv').style.paddingLeft = isMobile() ? "auto" : "20px"
     initEducation()
