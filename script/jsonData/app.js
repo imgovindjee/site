@@ -73,7 +73,7 @@ let apps = [
 	}, 
 	{
 		appName: 'Quiz Application',
-		media: 'javaquiz.gif',
+		media: 'javaQuiz.gif',
 		app_url: 'https://github.com/imgovindjee/Java-Quiz-Application',
 		project_type: 'Demo Project',
 		button_text: 'GitHub Repository',

@@ -1,7 +1,7 @@
 const highlights = {
 	"Cafe": {
 		highlightName: "Cafe",
-		highlightCoverImage: "Cafe.jpeg",
+		highlightCoverImage: "cafe.jpeg",
 		previousHighlightID: null,
 		nextHighlightID: "Dive",
 		stories: [
