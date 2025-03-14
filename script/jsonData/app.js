@@ -161,4 +161,13 @@ let apps = [
 		redirect_url: '..',
 		tech: 'Web Development'
 	},
+	{
+		appName: 'Note Maker',
+		media: 'note-hibernate-jsp-servlet.gif',
+		app_url: 'https://github.com/imgovindjee/Note-Maker-Hibernate-JSP-Servlet',
+		project_type: 'Live Project',
+		button_text: 'GitHub Repository',
+		redirect_url: '..',
+		tech: 'Java Web'
+	},
 ];
