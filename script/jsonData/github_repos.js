@@ -15,6 +15,16 @@ let repos = [
         tech: 'Core Java'
     },
     {
+        repoName: 'Note Maker X Hibernate-JSP-Servlet',
+        repoUrl: 'https://github.com/imgovindjee/Note-Maker-Hibernate-JSP-Servlet',
+        tech: 'Java Web'
+    },
+    {
+        repoName: 'Doctor Appointment Booking',
+        repoUrl: 'https://github.com/imgovindjee/Hospital-Appointment-System-JSP-Servlet',
+        tech: 'Java Web'
+    },
+    {
         repoName: 'Airline Management System',
         repoUrl: 'https://github.com/imgovindjee/Airline-Management-System-USING-JAVA-ENTERPRISE-',
         tech: 'Java Desktop Application (JDBC)'
@@ -254,4 +264,19 @@ let repos = [
         repoUrl: 'https://github.com/imgovindjee/Basic_Portfolio_HomePage',
         tech: 'HTML'
     },
+    {
+        repoName: 'Person Diabetic Predicting',
+        repoUrl: 'https://github.com/imgovindjee/Person-Diabetic-predicting-KNN-DECISON_Tree-SVN-NAIVE_BAISE-LOGISTIC',
+        tech: 'Python'
+    },
+    {
+        repoName: 'Face Lock Unlock System',
+        repoUrl: 'https://github.com/imgovindjee/Face-Lock-Unlock-System',
+        tech: 'Python'
+    },
+    {
+        repoName: 'Face Recognition',
+        repoUrl: 'https://github.com/imgovindjee/Face-Recognition',
+        tech: 'Python'
+    }
 ]
