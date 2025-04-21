@@ -1,7 +1,17 @@
 let repos = [
     {
-        repoName: 'System Design',
+        repoName: 'Core Java',
+        repoUrl: 'https://github.com/imgovindjee/Java-Concepts',
+        tech: 'Java'
+    },
+    {
+        repoName: 'System Design and OOPs Concepts',
         repoUrl: 'https://github.com/imgovindjee/System-Design',
+        tech: 'Java'
+    },
+    {
+        repoName: 'Cryptography Algorithms',
+        repoUrl: 'https://github.com/imgovindjee/Cryptography-Algorithms',
         tech: 'Java'
     },
     {
@@ -23,6 +33,26 @@ let repos = [
         repoName: 'Doctor Appointment Booking',
         repoUrl: 'https://github.com/imgovindjee/Hospital-Appointment-System-JSP-Servlet',
         tech: 'Java Web'
+    },
+    {
+        repoName: 'Swing FrameWork',
+        repoUrl: 'https://github.com/imgovindjee/Swing-Framework',
+        tech: 'Java Swing'
+    },
+    {
+        repoName: '[Cipher Cryptography] - Encryption and Decryption',
+        repoUrl: 'https://github.com/imgovindjee/Encryption-Decryption-Using-Cipher-Cryptography',
+        tech: 'Java Desktop Application'
+    },
+    {
+        repoName: 'Cipher Text and Image Cryptography',
+        repoUrl: 'https://github.com/imgovindjee/Cipher-Text-and-Image-Cryptography-',
+        tech: 'Java Desktop Application'
+    },
+    {
+        repoName: 'Video Conference',
+        repoUrl: 'https://github.com/imgovindjee/Video-Conference',
+        tech: 'Java Desktop Application'
     },
     {
         repoName: 'Airline Management System',
@@ -58,6 +88,11 @@ let repos = [
         repoName: 'Advance Enterprise Java',
         repoUrl: 'https://github.com/imgovindjee/Advance-Java-Enterprise-Level-',
         tech: 'Enterprise Java'
+    },
+    {
+        repoName: 'C Concepts',
+        repoUrl: 'https://github.com/imgovindjee/C-Concepts',
+        tech: 'C'
     },
     {
         repoName: 'Flames',
@@ -263,6 +298,16 @@ let repos = [
         repoName: 'Basic Portfolio',
         repoUrl: 'https://github.com/imgovindjee/Basic_Portfolio_HomePage',
         tech: 'HTML'
+    },
+    {
+        repoName: 'Basic Python',
+        repoUrl: 'https://github.com/imgovindjee/Python-Concepts',
+        tech: 'Python'
+    },
+    {
+        repoName: 'Python Trutle',
+        repoUrl: 'https://github.com/imgovindjee/Python-Turtle',
+        tech: 'Python Turtle'
     },
     {
         repoName: 'Person Diabetic Predicting',
