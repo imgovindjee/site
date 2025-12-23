@@ -15,6 +15,26 @@ let repos = [
         tech: 'Java'
     },
     {
+        repoName: 'File Compressor-Decompressor',
+        repoUrl: 'https://github.com/imgovindjee/File-Compressor',
+        tech: 'Java'
+    },
+    {
+        repoName: 'Mini Sweeper Game',
+        repoUrl: 'https://github.com/imgovindjee/Mine-Sweeper',
+        tech: 'Java'
+    },
+    {
+        repoName: 'Snake Game 2D',
+        repoUrl: 'https://github.com/imgovindjee/Snake-Game-2D',
+        tech: 'Java'
+    },
+    {
+        repoName: 'Disk Scheduler',
+        repoUrl: 'https://github.com/imgovindjee/Disk-Scheduler',
+        tech: 'Java'
+    },
+    {
         repoName: 'Music Player X Java',
         repoUrl: 'https://github.com/imgovindjee/Music-Player-X-Java',
         tech: 'Java'

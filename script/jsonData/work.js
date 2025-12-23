@@ -62,8 +62,10 @@ let work = [
 
 let awards = [
     {
-        awardname: '----',
-        awardDate: '----',
-        awardNote: 'Successfull Project Model - Reward'
+        awardname: 'General Scholarship Scheme (GSS 2022-2026) Under ICCR (Indian Council for Cultural Relations)',
+        awardDate: '07-13-2022',
+        awardNote: 'Under this scholarship scheme, I have been awarded a scholarship for pursuing my Bachelors in Computer Science and Engineering from India in tire-1 Government Collage.',
+        // awardLogo: 'iccr.png',
+        awardLink: 'https://www.iccr.gov.in/'
     }
 ]

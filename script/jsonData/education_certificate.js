@@ -2,9 +2,9 @@ let educationList = [
 	{
 		certificateId: "EL-1",
 		certificateName: "Bachelor of Technology in Computer Science",
-		instituteName: "Delhi Technological University (formally DCE) with 9.10 CGPA - DTU",
+		instituteName: "Delhi Technological University (formally DCE) with 9.07 CGPA - DTU",
 		instituteIcon: "assets/images/icons/dtu.jpg",
-		courseContent: ["<VMCSH>Semester 1</VMCSH>", "Introduction to c/c++", "Mathematics-I", "Physics-I", "Basic Electrical Engineering", "Engineering Drawing", "Logical Reasoning (Electives-1)", "<VMCSH>Semester 2</VMCSH>", "Mathematics-II", "Physics-II", "Chemistry", "WorkShop", "Basic Mechanical Engineering", "Desh Ka Mentor", "Engineering Exploration (Electives-2)", "<VMCSH>Semester 3</VMCSH>", "Analog Electornics", "Data Structures", "Object Oriented Programming", "Discrte Mathematics", "Engineering Analysis and Design Modeling and simulation", "Universal Human Values (Electives-3)", "<VMCSH>Semester 4</VMCSH>", "Digital Electronics", "Computer Organization and Articheture", "Operating System", "Database Management System", "Analysis and Design of Algorithms", "(Electives-4)", "<VMCSH>Semester 5</VMCSH>", "Software Engineering", "Machine Learning", "Theory of Computation", "Probability and Statistics", "Enterprise Java - JDBC, JSP, Hibernate...", "Engineering Economics", "The Joy of Computing using Python", "<VMCSH>Semester 6</VMCSH>", "Computer Networks", "Ethical Hacking", "Parallel Algorithms", "Airtifical Intelligent", "Compiler Design", "Fundamental of Management", "Deep Learning"],
+		courseContent: ["<VMCSH>Semester 1</VMCSH>", "Introduction to c/c++", "Mathematics-I", "Physics-I", "Basic Electrical Engineering", "Engineering Drawing", "Logical Reasoning (Electives-1)", "<VMCSH>Semester 2</VMCSH>", "Mathematics-II", "Physics-II", "Chemistry", "WorkShop", "Basic Mechanical Engineering", "Desh Ka Mentor", "Engineering Exploration (Electives-2)", "<VMCSH>Semester 3</VMCSH>", "Analog Electornics", "Data Structures", "Object Oriented Programming", "Discrte Mathematics", "Engineering Analysis and Design Modeling and simulation", "Universal Human Values (Electives-3)", "<VMCSH>Semester 4</VMCSH>", "Digital Electronics", "Computer Organization and Articheture", "Operating System", "Database Management System", "Analysis and Design of Algorithms", "(Electives-4)", "<VMCSH>Semester 5</VMCSH>", "Software Engineering", "Machine Learning", "Theory of Computation", "Probability and Statistics", "Enterprise Java - JDBC, JSP, Hibernate...", "Engineering Economics", "The Joy of Computing using Python", "<VMCSH>Semester 6</VMCSH>", "Computer Networks", "Ethical Hacking", "Parallel Algorithms", "Airtifical Intelligent", "Compiler Design", "Fundamental of Management", "Deep Learning", "<VMCSH>Semester 7</VMCSH>", "Minor Project", "Training Seminar", "Computer Vision", "Cyber Law", "Web Technology", "Programming in Java (NPTEL)", "Pattern Recognition", "Secure Coding", "<VMCSH>Semester 8</VMCSH>", "Major Project"],
 		keywords: ['degree', 'graduation', 'dtu', 'university', 'dce', 'state university']
 	},
     {
@@ -50,6 +50,45 @@ let instituteCertificateList = [
 		instituteIcon: "assets/images/icons/nptel.png",
 		courseContent: ["What is Python?", "Basic Python Syntax introduction", "Data Types", "Variables", "Expressions, Numbers, and Type Conversions", "Functions", "Branching with if Statements", "While Loops", "For Loops", "Recursion", "Strings", "Formatting Strings", "Lists", "Tuples", "Dictionaries"],
 		keywords: ['Python', 'Crash Course', 'Loops', 'Basics of Python']
+	},
+	{
+		certificateId: "O-CL-2",
+		certificateName: "Programming in Java",
+		instituteName: "NPTEL with 96% (Top 1%) - IIT KGP",
+		instituteIcon: "assets/images/icons/nptel.png",
+		courseContent: [
+							"Overview of Object-Oriented Programming Concepts",
+							"Introduction to Java and Java Features",
+							"Java Architecture (JVM, JRE, JDK)",
+							"Basic Structure of a Java Program",
+							"Java Programming Elements and Data Types",
+							"Variables, Operators, and Expressions",
+							"Control Statements and Looping Constructs",
+							"Arrays and String Handling",
+							"Input and Output Streams in Java",
+							"File Handling in Java",
+							"Classes and Objects",
+							"Encapsulation and Access Specifiers",
+							"Constructors and Method Overloading",
+							"Inheritance and Code Reusability",
+							"Method Overriding and Polymorphism",
+							"Exception Handling Mechanisms",
+							"User-Defined Exceptions",
+							"Multithreaded Programming Concepts",
+							"Thread Creation and Synchronization",
+							"Java Applets Basics",
+							"Servlets and Web Programming Concepts",
+							"GUI Programming using AWT",
+							"GUI Programming using Swing",
+							"Event Handling and Layout Managers",
+							"Networking Fundamentals in Java",
+							"Socket Programming in Java",
+							"Database Connectivity using JDBC",
+							"Executing SQL Queries through Java",
+							"Interfaces and Multiple Inheritance",
+							"Packages and Modular Software Development"
+						],
+		keywords: ['Java', 'Crash Course', 'OOPS in Java', 'AWT (Abstract Window Toolkit)', 'ODBC', 'Desktop Applications', "Basics Principles of OOPS - Java", "Multi-Threading"]
 	},
 ]
 
