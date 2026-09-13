@@ -3,7 +3,8 @@ $(document).ready(() => {
     let status = (getDarkModeStatus() === "ON" ? true : false)
     document.getElementById("darkModeSwitch").src = status ? "assets/images/nav/on.png" : "assets/images/nav/off.png"
     darkMode(status)
-    document.getElementById("filtersDiv").innerHTML = isMobile() ? `<div style="align-items: center!important;display: flex;flex: 1;margin-bottom: 10px;margin-right: 15px;"><input class="form-control mr-sm-2 my_fade_in" type="search" placeholder="Search GitHub Repositories..." style="height: 35px" aria-label="Search" onkeyup="onKeyPress(this)" onblur="blurListener()" onfocus="focusListener()" id="searchBox"></div><div class="dropdown my_fade_in"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Repositories</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color: var(--card_bg)" id="optionsDiv"></div></div>` : `<div style="display: flex"><div class="dropdown my_fade_in"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Repositories</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2" style="background-color: var(--card_bg)" id="optionsDiv"></div></div><div style="align-items: center!important;display: flex;flex: 1;padding-left: 10px;padding-right: 10px;"><input class="form-control mr-sm-2 my_fade_in" type="search" placeholder="Search GitHub Repositories..." style="height: 35px;" aria-label="Search" onkeyup="onKeyPress(this)" onblur="blurListener()" onfocus="focusListener()" id="searchBox"></div></div>`
+    document.getElementById("filtersDiv").innerHTML = `<div class="dropdown my_fade_in"><button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Repositories</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="optionsDiv"></div></div><div style="flex:1;"><input class="form-control my_fade_in" type="search" placeholder="Search GitHub Repositories..." aria-label="Search" onkeyup="onKeyPress(this)" onblur="blurListener()" onfocus="focusListener()" id="searchBox"></div>`
+    darkMode(status) // re-apply after filtersDiv is rendered so search input gets correct styles
     let q = document.getElementById('searchBox').value.trim()
     if (q === "") {
         setRepos(repos)
@@ -102,8 +103,16 @@ const onKeyPress = id => {
 const setRepos = repoList => {
     let text = ""
     let darkModeStatus = (getDarkModeStatus() === "ON" ? true : false)
+    const githubIcon = `assets/images/icons/${darkModeStatus ? 'github_white_icon.png' : 'github_icon.png'}`
     repoList.forEach((item) => {
-        text += `<div class="repoItem" onclick="window.location.href = '${item.repoUrl}'"><table><tr><td rowspan="2"><img class="mgithub-icon" src="assets/images/icons/${darkModeStatus ? 'github_white_icon.png' : 'github_icon.png'}" style="width: 50px;height: 50px;"></td><td style="padding-left: 10px;"><h6 style="margin-top: 8px;color:var(--text_color)">${item.repoName}</h6></td></tr><tr><td style="padding-left: 10px;"><div class="badge badge-pill badge-info" style="width:fit-content;height:fit-content;margin-bottom:5px;display:inline-flex;align-items:center;padding-left:12px;padding-right:12px;">${item.tech}</div></td></tr></table></div>`
+        text += `<div class="repoItem" onclick="window.location.href = '${item.repoUrl}'">
+          <div class="repo-icon"><img class="mgithub-icon" src="${githubIcon}" /></div>
+          <div class="repo-info">
+            <p class="repo-name">${item.repoName}</p>
+            <span class="repo-tech">${item.tech}</span>
+          </div>
+          <svg class="repo-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>`
     })
     document.getElementById('myRepos').innerHTML = text
 }

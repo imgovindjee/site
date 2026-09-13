@@ -54,10 +54,9 @@
     background-color: var(--nav_bg);
   }
   
-  .page_background {
-    background-color: var(--page_bg);
-  }
-  
+  /* background handled by redesign.css on body + html */
+  .page_background { }
+
   .about_container {
     border-top-left-radius: 5vw;
     border-top-right-radius: 5vw;
@@ -91,9 +90,12 @@
   }
   
   .card {
-    box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.2);
-    border-radius: 5px;
-    background-color: var(--card_bg);
+    border-radius: 12px;
+    background: var(--glass-bg, var(--card_bg));
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    border: 1px solid var(--glass-border, rgba(255,255,255,0.5));
+    box-shadow: var(--glass-shadow, 0 4px 20px rgba(0,0,0,0.08));
     transition-duration: 0.3s;
   }
   

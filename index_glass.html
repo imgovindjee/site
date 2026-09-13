@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shree Govind Jee</title>
+  <link rel="icon" href="assets/images/profile/logo.png" type="image/x-icon" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg-deep:    #08081a;
+      --bg-mid:     #0e0e2e;
+      --purple:     #7c3aed;
+      --purple-lt:  #a78bfa;
+      --blue:       #38bdf8;
+      --teal:       #2dd4bf;
+      --glass-bg:   rgba(255,255,255,0.05);
+      --glass-bd:   rgba(255,255,255,0.10);
+      --glass-bd-s: rgba(255,255,255,0.18);
+      --text-1:     #f1f5f9;
+      --text-2:     #94a3b8;
+      --text-3:     #64748b;
+      --radius-lg:  16px;
+      --radius-md:  12px;
+      --radius-sm:  8px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: var(--bg-deep);
+      color: var(--text-1);
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* ─── BG ORBS ─── */
+    .orb {
+      position: fixed;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.25;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .orb-1 { width: 500px; height: 500px; background: #4c1d95; top: -100px; left: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: #0c4a6e; top: 200px; right: -80px; }
+    .orb-3 { width: 300px; height: 300px; background: #134e4a; bottom: 200px; left: 30%; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      background: rgba(8,8,26,0.7);
+      border-bottom: 1px solid var(--glass-bd);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-size: 17px;
+      font-weight: 600;
+      background: linear-gradient(90deg, var(--purple-lt), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+    .nav-links a {
+      color: var(--text-2);
+      text-decoration: none;
+      font-size: 14px;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text-1); }
+    .nav-badge {
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      color: #fff;
+      font-size: 11px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      font-weight: 500;
+    }
+
+    /* ─── LAYOUT ─── */
+    main { position: relative; z-index: 1; }
+    section { padding: 5rem 2rem; max-width: 1100px; margin: 0 auto; }
+
+    /* ─── HERO ─── */
+    #hero {
+      padding-top: 7rem;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .hero-inner {
+      display: grid;
+      grid-template-columns: 1fr 380px;
+      gap: 3rem;
+      align-items: center;
+      width: 100%;
+    }
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(124,58,237,0.15);
+      border: 1px solid rgba(124,58,237,0.35);
+      color: var(--purple-lt);
+      font-size: 12px;
+      padding: 4px 12px;
+      border-radius: 100px;
+      margin-bottom: 1.2rem;
+    }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: #4ade80; display: inline-block; }
+    .hero-name {
+      font-size: clamp(2.4rem, 5vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+      background: linear-gradient(135deg, #f1f5f9 0%, var(--purple-lt) 60%, var(--blue) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero-role {
+      font-size: 1.15rem;
+      color: var(--text-2);
+      margin-bottom: 1.2rem;
+    }
+    .hero-role span { color: var(--purple-lt); font-weight: 500; }
+    .hero-desc {
+      font-size: 15px;
+      line-height: 1.75;
+      color: var(--text-2);
+      max-width: 520px;
+      margin-bottom: 2rem;
+    }
+    .hero-cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 22px;
+      border-radius: var(--radius-sm);
+      font-size: 14px;
+      font-weight: 500;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all .2s;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--purple), #5b21b6);
+      color: #fff;
+      box-shadow: 0 0 20px rgba(124,58,237,0.35);
+    }
+    .btn-primary:hover { box-shadow: 0 0 28px rgba(124,58,237,0.55); transform: translateY(-1px); }
+    .btn-glass {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-bd-s);
+      color: var(--text-1);
+      backdrop-filter: blur(10px);
+    }
+    .btn-glass:hover { background: rgba(255,255,255,0.09); transform: translateY(-1px); }
+
+    /* hero card */
+    .hero-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-bd-s);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(20px);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(167,139,250,0.5), transparent);
+    }
+    .hero-avatar {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid rgba(167,139,250,0.4);
+      margin-bottom: 1.2rem;
+    }
+    .hero-avatar-fallback {
+      width: 80px; height: 80px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--purple), var(--blue));
+      display: flex; align-items: center; justify-content: center;
+      font-size: 28px; font-weight: 700; color: #fff;
+      margin-bottom: 1.2rem;
+      border: 2px solid rgba(167,139,250,0.4);
+    }
+    .card-name { font-size: 17px; font-weight: 600; margin-bottom: 2px; }
+    .card-role { font-size: 13px; color: var(--text-2); margin-bottom: 1.2rem; }
+    .card-divider { height: 1px; background: var(--glass-bd); margin: 1rem 0; }
+    .card-row { display: flex; justify-content: space-between; font-size: 12px; color: var(--text-2); margin-bottom: 8px; }
+    .card-row span:last-child { color: var(--text-1); font-weight: 500; }
+    .social-row { display: flex; gap: 10px; margin-top: 1.2rem; flex-wrap: wrap; }
+    .social-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid var(--glass-bd);
+      border-radius: 100px;
+      padding: 4px 10px;
+      font-size: 11px;
+      color: var(--text-2);
+      text-decoration: none;
+      transition: all .2s;
+    }
+    .social-pill:hover { color: var(--text-1); border-color: var(--glass-bd-s); background: rgba(255,255,255,0.1); }
+    .social-pill img { width: 14px; height: 14px; filter: brightness(0.7); }
+    .social-pill:hover img { filter: brightness(1); }
+
+    /* ─── STATS ─── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-bottom: 4rem;
+    }
+    .stat-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-bd);
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(16px);
+      padding: 1.4rem 1.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: border-color .2s, transform .2s;
+    }
+    .stat-card:hover { border-color: var(--glass-bd-s); transform: translateY(-2px); }
+    .stat-card::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 2px;
+      background: var(--accent-color, linear-gradient(90deg, var(--purple), var(--blue)));
+      border-radius: var(--radius-md) var(--radius-md) 0 0;
+    }
+    .stat-num { font-size: 2rem; font-weight: 700; margin-bottom: 4px; }
+    .stat-label { font-size: 12px; color: var(--text-2); }
+
+    /* ─── SECTION HEADER ─── */
+    .sec-header { margin-bottom: 2.5rem; }
+    .sec-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--purple-lt);
+      margin-bottom: 8px;
+    }
+    .sec-title {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 700;
+      color: var(--text-1);
+    }
+    .sec-title span {
+      background: linear-gradient(90deg, var(--purple-lt), var(--blue));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ─── SKILLS ─── */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 12px;
+    }
+    .skill-group { }
+    .skill-group-label {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-3);
+      margin-bottom: 10px;
+    }
+    .skill-pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 1.5rem; }
+    .skill-pill {
+      background: rgba(124,58,237,0.1);
+      border: 1px solid rgba(124,58,237,0.25);
+      color: var(--purple-lt);
+      font-size: 12px;
+      padding: 5px 12px;
+      border-radius: 100px;
+      transition: all .2s;
+      cursor: default;
+    }
+    .skill-pill:hover { background: rgba(124,58,237,0.2); border-color: rgba(167,139,250,0.45); }
+    .skill-pill.blue {
+      background: rgba(56,189,248,0.1);
+      border-color: rgba(56,189,248,0.25);
+      color: #7dd3fc;
+    }
+    .skill-pill.blue:hover { background: rgba(56,189,248,0.2); }
+    .skill-pill.teal {
+      background: rgba(45,212,191,0.1);
+      border-color: rgba(45,212,191,0.25);
+      color: #5eead4;
+    }
+    .skill-pill.teal:hover { background: rgba(45,212,191,0.2); }
+    .skill-pill.amber {
+      background: rgba(251,191,36,0.1);
+      border-color: rgba(251,191,36,0.25);
+      color: #fcd34d;
+    }
+    .skill-pill.amber:hover { background: rgba(251,191,36,0.2); }
+
+    /* ─── PROJECTS ─── */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .project-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-bd);
+      border-radius: var(--radius-md);
+      backdrop-filter: blur(16px);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      transition: border-color .2s, transform .2s;
+      position: relative;
+      overflow: hidden;
+    }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(124,58,237,0.04), transparent);
+      pointer-events: none;
+    }
+    .project-card:hover { border-color: var(--glass-bd-s); transform: translateY(-3px); }
+    .project-icon {
+      width: 40px; height: 40px;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, rgba(124,58,237,0.3), rgba(56,189,248,0.2));
+      border: 1px solid rgba(167,139,250,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .project-name { font-size: 15px; font-weight: 600; color: var(--text-1); }
+    .project-desc { font-size: 13px; color: var(--text-2); line-height: 1.6; flex: 1; }
+    .project-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 6px; }
+    .project-dates { font-size: 11px; color: var(--text-3); }
+    .project-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 12px;
+      color: var(--purple-lt);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .project-link:hover { color: var(--blue); }
+    .project-link::after { content: '↗'; }
+
+    /* ─── WORK TIMELINE ─── */
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 120px 1fr;
+      gap: 2rem;
+      position: relative;
+      padding-bottom: 2.5rem;
+    }
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 108px;
+      top: 8px; bottom: 0;
+      width: 1px;
+      background: linear-gradient(180deg, rgba(124,58,237,0.5), transparent);
+    }
+    .timeline-item:last-child::before { display: none; }
+    .t-date { font-size: 12px; color: var(--text-3); text-align: right; padding-top: 4px; }
+    .t-dot {
+      position: absolute;
+      left: 104px;
+      top: 6px;
+      width: 9px; height: 9px;
+      border-radius: 50%;
+      background: var(--purple);
+      border: 2px solid var(--bg-deep);
+      box-shadow: 0 0 8px rgba(124,58,237,0.6);
+    }
+    .t-content {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-bd);
+      border-radius: var(--radius-md);
+      padding: 1.2rem 1.4rem;
+      backdrop-filter: blur(12px);
+    }
+    .t-company { font-size: 15px; font-weight: 600; margin-bottom: 2px; }
+    .t-role { font-size: 13px; color: var(--purple-lt); margin-bottom: 8px; }
+    .t-desc { font-size: 13px; color: var(--text-2); line-height: 1.65; }
+
+    /* ─── CONTACT ─── */
+    .contact-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-bd-s);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(24px);
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(167,139,250,0.6), rgba(56,189,248,0.4), transparent);
+    }
+    .contact-card::after {
+      content: '';
+      position: absolute;
+      top: -60px; left: 50%;
+      transform: translateX(-50%);
+      width: 200px; height: 200px;
+      border-radius: 50%;
+      background: rgba(124,58,237,0.15);
+      filter: blur(40px);
+      pointer-events: none;
+    }
+    .contact-title { font-size: 2rem; font-weight: 700; margin-bottom: 0.8rem; }
+    .contact-desc { font-size: 15px; color: var(--text-2); margin-bottom: 2rem; max-width: 480px; margin-left: auto; margin-right: auto; }
+    .contact-links { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ─── */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      border-top: 1px solid var(--glass-bd);
+      font-size: 13px;
+      color: var(--text-3);
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ─── DIVIDER ─── */
+    .sec-divider {
+      height: 1px;
+      background: linear-gradient(90deg, transparent, var(--glass-bd), transparent);
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-card { display: none; }
+      nav .nav-links { display: none; }
+      .timeline-item { grid-template-columns: 1fr; }
+      .timeline-item::before { display: none; }
+      .t-dot { display: none; }
+      .t-date { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- BG ORBS -->
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-brand" href="#">Shree Govind Jee</a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <span class="nav-badge">Open to work</span>
+  </nav>
+
+  <main>
+
+    <!-- HERO -->
+    <section id="about" style="padding: 0 2rem;">
+      <div id="hero">
+        <div class="hero-inner">
+          <div class="hero-left">
+            <div class="hero-tag">Software Engineer · Core Platform</div>
+            <h1 class="hero-name">Shree<br>Govind Jee</h1>
+            <p class="hero-role">SDE-II at <span>Innovaccer</span> · Noida, India</p>
+            <p class="hero-desc">
+              Passionate about building scalable software applications. Focused on full-stack
+              development, platform engineering, and crafting clean, high-performance systems.
+            </p>
+            <div class="hero-cta">
+              <a class="btn btn-primary" href="https://github.com/imgovindjee" target="_blank">View GitHub</a>
+              <a class="btn btn-glass" href="https://www.linkedin.com/in/shreegovindjee/" target="_blank">LinkedIn</a>
+              <a class="btn btn-glass" href="#contact">Get in touch</a>
+            </div>
+          </div>
+
+          <div class="hero-card">
+            <div class="hero-avatar-fallback">SG</div>
+            <div class="card-name">Shree Govind Jee</div>
+            <div class="card-role">Software Engineer · Innovaccer</div>
+            <div class="card-divider"></div>
+            <div class="card-row"><span>Location</span><span>Noida, India</span></div>
+            <div class="card-row"><span>Team</span><span>Core Platform</span></div>
+            <div class="card-row"><span>GitHub repos</span><span>69</span></div>
+            <div class="card-row"><span>Apps built</span><span>23</span></div>
+            <div class="card-row"><span>Skills</span><span>20+</span></div>
+            <div class="card-divider"></div>
+            <div class="social-row">
+              <a class="social-pill" href="https://github.com/imgovindjee" target="_blank">
+                <img src="assets/images/socials/light/github.png" alt="GitHub"> GitHub
+              </a>
+              <a class="social-pill" href="https://www.linkedin.com/in/shreegovindjee/" target="_blank">
+                <img src="assets/images/socials/light/linkedin.png" alt="LinkedIn"> LinkedIn
+              </a>
+              <a class="social-pill" href="https://x.com/imgovind_jee" target="_blank">
+                <img src="assets/images/socials/light/twitter.png" alt="Twitter"> X
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sec-divider"></div>
+
+    <!-- STATS -->
+    <section>
+      <div class="stats-grid">
+        <div class="stat-card" style="--accent-color: linear-gradient(90deg, #7c3aed, #a78bfa);">
+          <div class="stat-num" style="background: linear-gradient(90deg,#a78bfa,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">69</div>
+          <div class="stat-label">GitHub Repositories</div>
+        </div>
+        <div class="stat-card" style="--accent-color: linear-gradient(90deg, #0ea5e9, #38bdf8);">
+          <div class="stat-num" style="background: linear-gradient(90deg,#38bdf8,#0ea5e9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">23</div>
+          <div class="stat-label">Apps Built</div>
+        </div>
+        <div class="stat-card" style="--accent-color: linear-gradient(90deg, #2dd4bf, #14b8a6);">
+          <div class="stat-num" style="background: linear-gradient(90deg,#2dd4bf,#14b8a6);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">20+</div>
+          <div class="stat-label">Technologies Learned</div>
+        </div>
+        <div class="stat-card" style="--accent-color: linear-gradient(90deg, #f59e0b, #fbbf24);">
+          <div class="stat-num" style="background: linear-gradient(90deg,#fbbf24,#f59e0b);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">4+</div>
+          <div class="stat-label">Years of Coding</div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sec-divider"></div>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <div class="sec-header">
+        <div class="sec-tag">Technical skills</div>
+        <h2 class="sec-title">What I work <span>with</span></h2>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Languages</div>
+        <div class="skill-pills">
+          <span class="skill-pill">Java</span>
+          <span class="skill-pill">Python</span>
+          <span class="skill-pill">JavaScript ES6</span>
+          <span class="skill-pill">C</span>
+          <span class="skill-pill">C++</span>
+          <span class="skill-pill">QBasic</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Frontend</div>
+        <div class="skill-pills">
+          <span class="skill-pill blue">React JS</span>
+          <span class="skill-pill blue">HTML</span>
+          <span class="skill-pill blue">CSS</span>
+          <span class="skill-pill blue">SCSS</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Backend &amp; Database</div>
+        <div class="skill-pills">
+          <span class="skill-pill teal">Node JS</span>
+          <span class="skill-pill teal">Express JS</span>
+          <span class="skill-pill teal">Enterprise Java</span>
+          <span class="skill-pill teal">MySQL</span>
+          <span class="skill-pill teal">MongoDB</span>
+          <span class="skill-pill teal">Mongoose</span>
+          <span class="skill-pill teal">Firebase</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Tools &amp; Practices</div>
+        <div class="skill-pills">
+          <span class="skill-pill amber">Git</span>
+          <span class="skill-pill amber">Parallel Programming</span>
+          <span class="skill-pill amber">ngrok</span>
+          <span class="skill-pill amber">Unit Testing</span>
+          <span class="skill-pill amber">REST APIs</span>
+          <span class="skill-pill amber">Shell Scripting</span>
+        </div>
+      </div>
+    </section>
+
+    <div class="sec-divider"></div>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="sec-header">
+        <div class="sec-tag">Portfolio</div>
+        <h2 class="sec-title">Things I've <span>built</span></h2>
+      </div>
+
+      <div class="projects-grid">
+        <div class="project-card">
+          <div class="project-icon">⚙️</div>
+          <div class="project-name">Process Scheduler</div>
+          <div class="project-desc">Java desktop app (Swing) implementing FCFS, SRTF, SJF, Round Robin, Priority Preemptive and Non-Preemptive schedulers with visual simulation.</div>
+          <div class="project-footer">
+            <span class="project-dates">Jan – Feb 2024</span>
+            <a class="project-link" href="https://github.com/imgovindjee/Process-Scheduler" target="_blank">View</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🎬</div>
+          <div class="project-name">Movix</div>
+          <div class="project-desc">Web application to discover movies and TV shows with search, filters, and detailed info pages. Built with React JS.</div>
+          <div class="project-footer">
+            <span class="project-dates">Feb – Mar 2024</span>
+            <a class="project-link" href="https://imgovindjee.github.io/movix/" target="_blank">View</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">💬</div>
+          <div class="project-name">Chat Application</div>
+          <div class="project-desc">Multi-person Java desktop chat application using Sockets and Java Swing for real-time messaging between multiple clients.</div>
+          <div class="project-footer">
+            <span class="project-dates">Sep 2024 – Present</span>
+            <a class="project-link" href="https://github.com/imgovindjee/Java-Chat-Application-USING-JAVA-SWING-ENTERPRISE" target="_blank">View</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">📊</div>
+          <div class="project-name">Algorithm Visualizer</div>
+          <div class="project-desc">Web app that visualizes Sorting algorithms, Pathfinding algorithms, and the N-Queen problem with step-by-step animations.</div>
+          <div class="project-footer">
+            <span class="project-dates">Apr – Jun 2024</span>
+            <a class="project-link" href="https://algorithm-visualizer-bygovindjee.netlify.app/" target="_blank">View</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">✍️</div>
+          <div class="project-name">Blog Your Voice</div>
+          <div class="project-desc">Advanced social blogging platform for sharing ideas — similar to X/Twitter and LinkedIn. Built with a full-stack approach.</div>
+          <div class="project-footer">
+            <span class="project-dates">May – Jun 2024</span>
+            <a class="project-link" href="https://blog-your-voice.netlify.app/" target="_blank">View</a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-icon">🧩</div>
+          <div class="project-name">Sudoku</div>
+          <div class="project-desc">Interactive browser-based Sudoku game with puzzle generation, validation, and solving capabilities.</div>
+          <div class="project-footer">
+            <span class="project-dates">Jan – Mar 2024</span>
+            <a class="project-link" href="https://imgovindjee.github.io/Sudoku/" target="_blank">View</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sec-divider"></div>
+
+    <!-- EXPERIENCE -->
+    <section id="experience">
+      <div class="sec-header">
+        <div class="sec-tag">Career</div>
+        <h2 class="sec-title">Work <span>experience</span></h2>
+      </div>
+
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="t-date">2024<br>Present</div>
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <div class="t-company">Innovaccer</div>
+            <div class="t-role">Software Development Engineer · Core Platform Engineering</div>
+            <div class="t-desc">Working on core platform systems serving enterprise healthcare clients. Building scalable backend services, APIs, and platform infrastructure using Python, Django, and cloud-native technologies.</div>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="t-date">2022<br>2024</div>
+          <div class="t-dot"></div>
+          <div class="t-content">
+            <div class="t-company">Self-Employed / Open Source</div>
+            <div class="t-role">Full Stack Developer · Independent Projects</div>
+            <div class="t-desc">Built 23+ applications spanning desktop (Java Swing), web (React, Node), and mobile. Shipped process schedulers, algorithm visualizers, social platforms, and more. Recipient of ICCR General Scholarship Scheme 2022–2026 for B.Tech in Computer Science.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="sec-divider"></div>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="contact-card">
+        <h2 class="contact-title">Let's build something</h2>
+        <p class="contact-desc">Open to collaborations, full-stack opportunities, and interesting engineering challenges. Reach out anytime.</p>
+        <div class="contact-links">
+          <a class="btn btn-primary" href="mailto:i_govind.jee@innovaccer.com">Send email</a>
+          <a class="btn btn-glass" href="https://www.linkedin.com/in/shreegovindjee/" target="_blank">LinkedIn</a>
+          <a class="btn btn-glass" href="https://github.com/imgovindjee" target="_blank">GitHub</a>
+          <a class="btn btn-glass" href="https://x.com/imgovind_jee" target="_blank">X / Twitter</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <span>© 2026 Shree Govind Jee · Built with glassmorphism dark design</span>
+  </footer>
+
+</body>
+</html>

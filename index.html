@@ -357,6 +357,195 @@
     <link rel="stylesheet" type="text/css" href="style/common.css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="style/index.css">
+    <link rel="stylesheet" type="text/css" href="style/redesign.css">
+    <style>
+      /* ── HERO BANNER ── */
+      .hero-banner {
+        background: linear-gradient(135deg, #3730A3 0%, #4F46E5 45%, #7C3AED 100%);
+        height: 260px;
+        position: relative;
+        overflow: hidden;
+      }
+      .hero-banner::before {
+        content: '';
+        position: absolute;
+        top: -60px; right: -60px;
+        width: 260px; height: 260px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.06);
+      }
+      .hero-banner::after {
+        content: '';
+        position: absolute;
+        bottom: -40px; left: 15%;
+        width: 180px; height: 180px;
+        border-radius: 50%;
+        background: rgba(6,182,212,0.10);
+      }
+      /* override old carousel */
+      #demo { display: none !important; }
+
+      /* ── PROFILE AREA ── */
+      .about_container {
+        border-top-left-radius: 24px;
+        border-top-right-radius: 24px;
+        margin-top: -60px !important;
+        padding-top: 0 !important;
+        background: var(--page_bg, #F5F5F5) !important;
+      }
+      #profile_image {
+        margin-top: -80px !important;
+        border: 4px solid #fff !important;
+        box-shadow: 0 8px 32px rgba(79,70,229,0.22) !important;
+        width: 140px !important;
+        height: 140px !important;
+        object-fit: cover !important;
+      }
+      #stat-chips-row { margin-top: clamp(50px, 10vw, 80px); }
+
+      /* ── MOBILE OVERRIDES (must come after base rules) ── */
+      @media (max-width: 576px) {
+        .hero-banner { height: 160px; }
+        .hero-banner h1 { font-size: 1.5rem !important; }
+        .hero-banner p { font-size: 13px !important; }
+        .about_container {
+          position: relative !important;
+          margin-top: 0 !important;
+          border-top-left-radius: 0 !important;
+          border-top-right-radius: 0 !important;
+          padding-bottom: 0.5rem !important;
+          display: flex !important;
+          justify-content: center !important;
+        }
+        #profile_image {
+          margin-top: 1.2rem !important;
+          width: 100px !important;
+          height: 100px !important;
+        }
+        #below-profile-content {
+          margin-top: 0 !important;
+        }
+        #stat-chips-row {
+          margin-top: 0.5rem !important;
+        }
+      }
+
+      /* ── STAT CHIPS ── */
+      .stat-chips {
+        display: flex;
+        justify-content: center;
+        gap: 12px;
+        flex-wrap: wrap;
+        margin: 1.2rem 0;
+      }
+      /* stat-chip glass handled by redesign.css; only layout here */
+      .stat-chip {
+        border-radius: 14px;
+        padding: 12px 22px;
+        text-align: center;
+        min-width: 85px;
+      }
+      .stat-chip-num {
+        font-size: 1.5rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #4F46E5, #06B6D4);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1.2;
+      }
+      .stat-chip-label { font-size: 11px; color: var(--text_muted, #64748B); margin-top: 2px; }
+
+      /* ── SOCIAL ICONS ── */
+      .social_icon {
+        width: 36px !important;
+        height: 36px !important;
+        margin: 5px !important;
+        border-radius: 10px;
+        padding: 6px;
+        background: var(--glass-bg, rgba(255,255,255,0.55));
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        border: 1px solid var(--glass-border, rgba(255,255,255,0.75));
+        box-shadow: 0 2px 10px rgba(79,70,229,0.08);
+        transition: all 0.2s;
+      }
+      .social_icon:hover {
+        background: var(--glass-hover, rgba(255,255,255,0.70));
+        border-color: rgba(129,140,248,0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 16px rgba(79,70,229,0.18);
+      }
+
+      /* ── SECTION TILES (replace GIFs) ── */
+      .section-tiles-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px;
+        max-width: 700px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+      @media (min-width: 768px) {
+        .section-tiles-grid { grid-template-columns: repeat(3, 1fr); }
+      }
+      .section-tile {
+        border-radius: 16px;
+        padding: 1.4rem 1rem;
+        cursor: pointer;
+        text-align: center;
+        transition: transform 0.2s, box-shadow 0.2s;
+        position: relative;
+        overflow: hidden;
+        text-decoration: none;
+      }
+      .section-tile::after {
+        content: '';
+        position: absolute;
+        top: -30px; right: -30px;
+        width: 90px; height: 90px;
+        border-radius: 50%;
+        background: rgba(255,255,255,0.08);
+      }
+      .section-tile:hover { transform: translateY(-4px); box-shadow: 0 12px 28px rgba(0,0,0,0.18); }
+      .section-tile-icon { font-size: 2rem; margin-bottom: 8px; display: block; }
+      .section-tile-label { font-size: 13px; font-weight: 600; color: #fff; display: block; }
+      .section-tile-sub { font-size: 11px; color: rgba(255,255,255,0.72); margin-top: 3px; display: block; }
+
+      .tile-edu   { background: linear-gradient(135deg, #4F46E5, #7C3AED); }
+      .tile-work  { background: linear-gradient(135deg, #0284C7, #06B6D4); }
+      .tile-skills{ background: linear-gradient(135deg, #059669, #10B981); }
+      .tile-apps  { background: linear-gradient(135deg, #D97706, #F59E0B); }
+      .tile-github{ background: linear-gradient(135deg, #374151, #6B7280); }
+      .tile-fb    { background: linear-gradient(135deg, #DC2626, #F87171); }
+
+      /* ── HIGHLIGHTS RING ── */
+      #outerStoryRing {
+        background: linear-gradient(45deg, #4F46E5, #7C3AED, #06B6D4, #10B981) !important;
+      }
+
+      /* ── BIO ── */
+      .bio-text {
+        font-size: 15px !important;
+        color: #475569 !important;
+        line-height: 1.8 !important;
+        max-width: 600px;
+        margin: 0 auto;
+        font-style: normal !important;
+      }
+
+      /* ── FOOTER ── */
+      .portfolio-footer {
+        text-align: center;
+        padding: 2rem 1rem;
+        border-top: 1px solid #E2E8F0;
+        color: #94A3B8;
+        font-size: 13px;
+        margin-top: 2rem;
+      }
+
+      /* bio text uses CSS variable — adapts to dark/light automatically */
+      .bio-text { color: var(--text_muted, #64748B) !important; }
+    </style>
 
 
     <title>Shree Govind Jee</title>
@@ -529,11 +718,11 @@
                         GitHub Repositories
                     </a>
                 </li>
-                <li class="nav-item active" id="helpLabel"></li>
+                <li class="nav-item" id="helpLabel"></li>
             </ul>
 
             <ul class="nav navbar-nav navbar-right">
-                <li class="nav-item active" id="darkModeLabel" style="cursor: pointer;"></li>
+                <li class="nav-item" id="darkModeLabel" style="cursor: pointer;"></li>
             </ul>
         </div>
     </nav>
@@ -542,28 +731,19 @@
 
 
 
-    <!-- CRAUSEL'S -->
-    <div id="demo" class="carousel slide shadow" data-ride="carousel" width="100%" height="300px">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="assets/images/coverpics/C1.png" style="object-fit: cover"
-                    alt="Shree Govind Jee Carousel Image 1" width="100%" height="300px">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/images/coverpics/C2.jpg" style="object-fit: cover"
-                    alt="Shree Govind Jee Carousel Image 2" width="100%" height="300px">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/images/coverpics/C3.png" style="object-fit: cover"
-                    alt="Shree Govind Jee Carousel Image 3" width="100%" height="300px">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/images/coverpics/C4.jpg" style="object-fit: cover"
-                    alt="Shree Govind Jee Carousel Image 4" width="100%" height="300px">
-            </div>
-            <div class="carousel-item">
-                <img src="assets/images/coverpics/C5.jpg" style="object-fit: cover"
-                    alt="Shree Govind Jee Carousel Image 5" width="100%" height="300px">
+    <!-- HERO BANNER (replaces carousel) -->
+    <div class="hero-banner">
+        <div style="position:relative;z-index:1;display:flex;align-items:center;height:100%;padding:0 2rem;">
+            <div>
+                <div style="display:inline-block;background:rgba(6,182,212,0.18);border:1px solid rgba(6,182,212,0.4);color:#67E8F9;font-size:12px;font-weight:600;padding:4px 14px;border-radius:100px;margin-bottom:12px;">
+                    ● Open to work
+                </div>
+                <h1 style="color:#fff;font-size:clamp(1.8rem,4vw,3rem);font-weight:700;line-height:1.1;margin:0;">
+                    Shree Govind Jee
+                </h1>
+                <p style="color:rgba(255,255,255,0.72);font-size:15px;margin:8px 0 0;">
+                    Software Engineer · Platform Engineer (Core Platform)
+                </p>
             </div>
         </div>
     </div>
@@ -578,120 +758,115 @@
 
 
 
-    <div style="margin-top: 70px">
+    <div id="below-profile-content" style="margin-top: 0;">
+
+        <!-- STAT CHIPS -->
+        <div class="stat-chips my_fade_in" id="stat-chips-row" style="padding: 0 1rem;">
+            <div class="stat-chip">
+                <div class="stat-chip-num">69</div>
+                <div class="stat-chip-label">GitHub Repos</div>
+            </div>
+            <div class="stat-chip">
+                <div class="stat-chip-num">23</div>
+                <div class="stat-chip-label">Apps Built</div>
+            </div>
+            <div class="stat-chip">
+                <div class="stat-chip-num">20+</div>
+                <div class="stat-chip-label">Technologies</div>
+            </div>
+            <div class="stat-chip">
+                <div class="stat-chip-num">4+</div>
+                <div class="stat-chip-label">Years Coding</div>
+            </div>
+        </div>
 
         <!-- ABOUT MYSELF -->
-        <div class=" container my_fade_in" style="padding-right: 30px;padding-left:30px;text-align: center">
-            <i class="my_text">
-                It's a pleasure to have you here. Thank you for taking the time. I'm Shree
-                Govind Jee,
-                an Software Development Engineer (SDE-I) &
-                I'm passionate about developing software applications. Moreover, towards SDE & Full
-                Stack development.
-                On this
-                website you can see all the apps I've developed.
-                On top of that, this website additionally shows off my Education, Work Experience, Skills, and
-                other
-                coding practices in shape of Github Repositories. I'd appreciate it if you could have a peek at
-                this
-                site.
-            </i>
+        <div class="container my_fade_in" style="padding: 1.5rem 2rem; text-align: center;">
+            <p class="bio-text my_text">
+                Software Engineer. I build the systems under the systems — scalable backends, platform infrastructure, and foundations that teams depend on. Passionate about full-stack development, platform engineering, and building software that lasts. Explore my education, work experience, skills, apps, and open-source work below.
+            </p>
         </div>
 
-
+        <!-- RESUME BUTTON -->
+        <div class="container my_fade_in" style="margin-top: 16px; text-align: center;">
+            <a href="https://drive.google.com/file/d/1B6eLNA0AFkazQFQHwz8r5rsHZnZD6l2b/view?usp=drive_link" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 24px; background: linear-gradient(135deg, #4F46E5, #7C3AED); color: #fff; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; letter-spacing: 0.02em; box-shadow: 0 4px 14px rgba(79,70,229,0.35); transition: transform 0.2s, box-shadow 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='0 6px 20px rgba(79,70,229,0.5)'" onmouseout="this.style.transform='';this.style.boxShadow='0 4px 14px rgba(79,70,229,0.35)'">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+                View Resume
+            </a>
+        </div>
 
         <!-- SOCIAL LINKS -->
-        <div class="container my_fade_in" style="margin-top: 30px">
-            <div class="row" style="justify-content: center">
-                <div class="col-">
-                    <img src="assets/images/socials/light/instagram.png" alt="Shree Govind Jee's Instagram ID"
-                        width="40px" height="40px" class="social_icon" id="insta"
-                        onclick="window.location.href = 'https://www.instagram.com/imgovind_jee/'" />
-                    <img src="assets/images/socials/light/facebook.png" alt="Shree Govind Jee's Facebook ID"
-                        width="40px" height="40px" class="social_icon" id="facebook"
-                        onclick="window.location.href = 'https://www.facebook.com/govind.jee.3154/'" />
-                    <img src="assets/images/socials/light/twitter.png" alt="Shree Govind Jee's Twitter ID"
-                        width="40px" height="40px" class="social_icon" id="twitter"
-                        onclick="window.location.href = 'https://x.com/imgovind_jee'" />
-                    <img src="assets/images/socials/light/linkedin.png" alt="Shree Govind Jee's Linkedin ID"
-                        width="40px" height="40px" class="social_icon" id="linkedin"
-                        onclick="window.location.href = 'https://www.linkedin.com/in/shreegovindjee/'" />
-                    <img src="assets/images/socials/light/snapchat.png" alt="Shree Govind Jee's Snapchat ID"
-                        width="40px" height="40px" class="social_icon" id="snapchat"
-                        onclick="window.location.href = 'https://www.snapchat.com/add/imgovind_jee'" />
-                </div>
-
-                <div class="col-">
-					<img src="assets/images/socials/light/youtube.png" alt="Shree Govind Jee YouTube ID" width="40px"
-						height="40px" class="social_icon" id="youtube"
-						onclick="window.location.href = 'https://leetcode.com/u/Shree_Govind_Jee/'" />
-					<img src="assets/images/socials/light/github.png" alt="Shree Govind Jee GitHub ID" width="40px"
-						height="40px" class="social_icon" id="github"
-						onclick="window.location.href = 'https://github.com/imgovindjee'" />
-					<img src="assets/images/socials/light/mail.png" alt="Shree Govind Jee Emails ID" width="40px"
-						height="40px" class="social_icon" id="mail" onclick="window.location.href = 'emails.html'" />
-					<img src="assets/images/socials/light/stackoverflow.png" alt="Shree Govind Jee StackOverFlow ID"
-						width="40px" height="40px" class="social_icon" id="stackoverflow"
-						onclick="window.location.href = 'https://stackoverflow.com/'" />
-				</div>
-            </div>
+        <div class="container my_fade_in" style="margin-top: 8px; text-align: center;">
+            <img src="assets/images/socials/light/instagram.png" alt="Instagram" class="social_icon" id="insta"
+                onclick="window.location.href = 'https://www.instagram.com/imgovind_jee/'" />
+            <img src="assets/images/socials/light/linkedin.png" alt="LinkedIn" class="social_icon" id="linkedin"
+                onclick="window.location.href = 'https://www.linkedin.com/in/shreegovindjee/'" />
+            <img src="assets/images/socials/light/twitter.png" alt="X / Twitter" class="social_icon" id="twitter"
+                onclick="window.location.href = 'https://x.com/imgovind_jee'" />
+            <img src="assets/images/socials/light/github.png" alt="GitHub" class="social_icon" id="github"
+                onclick="window.location.href = 'https://github.com/imgovindjee'" />
+            <img src="assets/images/socials/light/youtube.png" alt="LeetCode" class="social_icon" id="youtube"
+                onclick="window.location.href = 'https://leetcode.com/u/Shree_Govind_Jee/'" />
+            <img src="assets/images/socials/light/mail.png" alt="Email" class="social_icon" id="mail"
+                onclick="window.location.href = 'emails.html'" />
+            <img src="assets/images/socials/light/facebook.png" alt="Facebook" class="social_icon" id="facebook"
+                onclick="window.location.href = 'https://www.facebook.com/govind.jee.3154/'" />
+            <img src="assets/images/socials/light/snapchat.png" alt="Snapchat" class="social_icon" id="snapchat"
+                onclick="window.location.href = 'https://www.snapchat.com/add/imgovind_jee'" />
+            <img src="assets/images/socials/light/stackoverflow.png" alt="StackOverflow" class="social_icon" id="stackoverflow"
+                onclick="window.location.href = 'https://stackoverflow.com/'" />
         </div>
-        <br>
 
-
-        <!-- HIGHLIGHTS SECSTION -->
-        <div class="container">
-            <div class="row my_fade_in"
-                style="overflow: auto;margin-left:0px ;margin-right: 0px; padding-bottom: 5px;margin-top:10px"
+        <!-- HIGHLIGHTS -->
+        <div class="container" style="margin-top: 1.5rem;">
+            <div class="my_fade_in"
+                style="overflow-x: auto; text-align: center; padding-bottom: 5px;"
                 id="highlightContainer">
-                <table id="StoryTable"></table>
-            </div>
-        </div>
-        <br>
-
-        <div class="container" style="margin-top:10px">
-            <div class="row">
-                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
-                    onclick="window.location.href = 'education_certifications.html'">
-                    <img src=" assets/images/profile/education.gif" width="100%" height="auto"
-                        alt="Shree Govind Jee's Education" style="border-radius:5px;" />
-                </div>
-                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
-                    onclick="window.location.href = 'work_exp.html'">
-                    <img src="assets/images/profile/work.gif" width="100%" height="auto"
-                        alt="Shree Govind Jee's Work Experience" style="border-radius:5px;" loading="lazy" />
-                </div>
-                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
-                    onclick="window.location.href = 'skills.html'">
-                    <img src="assets/images/profile/skills.gif" width="100%" height="auto"
-                        alt="Shree Govind Jee's Skills" style="border-radius:5px;" loading="lazy" />
-                </div>
-                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
-                    onclick="window.location.href = 'apps.html'">
-                    <img src="assets/images/profile/apps.gif" width="100%" height="auto"
-                        alt="Apps Developed by Shree Govind Jee" style="border-radius:5px;" loading="lazy" />
-                </div>
-                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
-                    onclick="window.location.href = 'github_repos.html'">
-                    <img src="assets/images/profile/github.gif" width="100%" height="auto"
-                        alt="Shree Govind Jee's GitHub Repositories" style="border-radius:5px;" loading="lazy" />
-                </div>
-                <div class="col-lg-6" style="padding: 8px;cursor: pointer;"
-                    onclick="window.location.href = 'feedback.html'">
-                    <img src="assets/images/profile/feedback.gif" width="100%" height="auto"
-                        alt="Shree Govind Jee's Website Feedback" style="border-radius:5px;" loading="lazy" />
-                </div>
+                <table id="StoryTable" style="display: inline-table;"></table>
             </div>
         </div>
 
-
-        <br />
-        <div style="width: 100%;text-align: center">
-            <br>
-            <h6 class="my_text">&#169; SHREE GOVIND JEE</h6>
-            <h6 class="my_text" id="loc"></h6>
+        <!-- SECTION TILES (replacing GIFs) -->
+        <div style="margin-top: 2rem; margin-bottom: 2rem;">
+            <div class="section-tiles-grid my_fade_in">
+                <a class="section-tile tile-edu" onclick="window.location.href='education_certifications.html'">
+                    <span class="section-tile-icon">🎓</span>
+                    <span class="section-tile-label">Education</span>
+                    <span class="section-tile-sub">B.Tech CSE</span>
+                </a>
+                <a class="section-tile tile-work" onclick="window.location.href='work_exp.html'">
+                    <span class="section-tile-icon">💼</span>
+                    <span class="section-tile-label">Work Experience</span>
+                    <span class="section-tile-sub">Innovaccer</span>
+                </a>
+                <a class="section-tile tile-skills" onclick="window.location.href='skills.html'">
+                    <span class="section-tile-icon">⚡</span>
+                    <span class="section-tile-label">Skills</span>
+                    <span class="section-tile-sub">20+ technologies</span>
+                </a>
+                <a class="section-tile tile-apps" onclick="window.location.href='apps.html'">
+                    <span class="section-tile-icon">📱</span>
+                    <span class="section-tile-label">Apps</span>
+                    <span class="section-tile-sub">23 apps built</span>
+                </a>
+                <a class="section-tile tile-github" onclick="window.location.href='github_repos.html'">
+                    <span class="section-tile-icon">🐙</span>
+                    <span class="section-tile-label">GitHub Repos</span>
+                    <span class="section-tile-sub">69 repositories</span>
+                </a>
+                <a class="section-tile tile-fb" onclick="window.location.href='feedback.html'">
+                    <span class="section-tile-icon">💬</span>
+                    <span class="section-tile-label">Feedback</span>
+                    <span class="section-tile-sub">Share thoughts</span>
+                </a>
+            </div>
         </div>
-        <br />
+
+        <!-- FOOTER -->
+        <div class="portfolio-footer my_text">
+            <span>© SHREE GOVIND JEE</span> &nbsp;·&nbsp;
+            <span style="background:none;-webkit-text-fill-color:inherit;color:inherit;" id="loc"></span>
+        </div>
     </div>
 
     <div id="notificaionArea"></div>

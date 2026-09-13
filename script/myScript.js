@@ -3,18 +3,34 @@ isProfilePage = false
 const darkMode = (isDarkModeOn) => {
     let root = document.querySelector(':root')
     if (isDarkModeOn) {
-        root.style.setProperty('--nav_bg', '#000000')
-        root.style.setProperty('--page_bg', '#121217')
-        root.style.setProperty('--text_color', '#E5E5E5')
-        root.style.setProperty('--card_bg', '#262626')
-        root.style.setProperty('--tile_bg', '#262626')
-        root.style.setProperty('--button_color', '#E5E5E5')
-        root.style.setProperty('--button_text_color', '#333333')
+        root.style.setProperty('--nav_bg', 'rgba(15,10,40,0.75)')
+        root.style.setProperty('--page_bg', '#08091A')
+        root.style.setProperty('--text_color', '#E2E8F0')
+        root.style.setProperty('--card_bg', 'rgba(255,255,255,0.05)')
+        root.style.setProperty('--tile_bg', 'rgba(255,255,255,0.07)')
+        root.style.setProperty('--button_color', '#818CF8')
+        root.style.setProperty('--button_text_color', '#0F0F1A')
         root.style.setProperty('--dim_rev_page_bg', '#ECEFF1')
         root.style.setProperty('--dim_rev_text_color', '#1F1A24')
         root.style.setProperty('--translucent_page_bg', '#1212124D')
-        root.style.setProperty('--dropdown_hover_bg', '#F5F5F5')
-        root.style.setProperty('--dropdown_hover_text_color', '#121217')
+        root.style.setProperty('--dropdown_hover_bg', '#1E293B')
+        root.style.setProperty('--dropdown_hover_text_color', '#E2E8F0')
+        // Glass variables — dark
+        root.style.setProperty('--glass-bg', 'rgba(255,255,255,0.05)')
+        root.style.setProperty('--glass-border', 'rgba(255,255,255,0.10)')
+        root.style.setProperty('--glass-shadow', '0 8px 32px rgba(0,0,0,0.45), inset 0 1px 0 rgba(255,255,255,0.07)')
+        root.style.setProperty('--glass-hover', 'rgba(255,255,255,0.09)')
+        root.style.setProperty('--glass-tile', 'rgba(255,255,255,0.07)')
+        root.style.setProperty('--body-gradient', 'radial-gradient(ellipse at 15% 40%, rgba(79,70,229,0.25) 0%, transparent 52%), radial-gradient(ellipse at 85% 15%, rgba(6,182,212,0.18) 0%, transparent 46%), radial-gradient(ellipse at 50% 88%, rgba(124,58,237,0.16) 0%, transparent 42%), #08091A')
+
+        // Force search inputs to adapt (bypasses Bootstrap's white bg)
+        try {
+            document.querySelectorAll('.filter-bar input, #searchBox').forEach(el => {
+                el.style.setProperty('background-color', 'rgba(255,255,255,0.07)', 'important')
+                el.style.setProperty('color', '#E2E8F0', 'important')
+                el.style.setProperty('border-color', 'rgba(255,255,255,0.10)', 'important')
+            })
+        } catch(e) {}
 
         try {
             document.getElementById("modeInfoText").innerHTML = "Switch to light mode"
@@ -54,7 +70,7 @@ const darkMode = (isDarkModeOn) => {
         root.style.setProperty('--nav_bg', '#4A148C')
         root.style.setProperty('--page_bg', '#F5F5F5')
         root.style.setProperty('--text_color', '#1A1A1A')
-        root.style.setProperty('--card_bg', '#F5F5F5')
+        root.style.setProperty('--card_bg', '#FFFFFF')
         root.style.setProperty('--tile_bg', '#E8EAF6')
         root.style.setProperty('--button_color', '#4A148C')
         root.style.setProperty('--button_text_color', '#F5F5F5')
@@ -63,6 +79,22 @@ const darkMode = (isDarkModeOn) => {
         root.style.setProperty('--translucent_page_bg', '#FDFDFD1A')
         root.style.setProperty('--dropdown_hover_bg', '#4A148C')
         root.style.setProperty('--dropdown_hover_text_color', '#F5F5F5')
+        // Light mode — original solid cards, no glass
+        root.style.setProperty('--glass-bg', '#FFFFFF')
+        root.style.setProperty('--glass-border', 'rgba(0,0,0,0.08)')
+        root.style.setProperty('--glass-shadow', '0 3px 6px rgba(0,0,0,0.10)')
+        root.style.setProperty('--glass-hover', '#FFFFFF')
+        root.style.setProperty('--glass-tile', '#E8EAF6')
+        root.style.setProperty('--body-gradient', '#F5F5F5')
+
+        // Force search inputs to light mode
+        try {
+            document.querySelectorAll('.filter-bar input, #searchBox').forEach(el => {
+                el.style.setProperty('background-color', '#E8EAF6', 'important')
+                el.style.setProperty('color', '#1A1A1A', 'important')
+                el.style.setProperty('border-color', 'rgba(0,0,0,0.08)', 'important')
+            })
+        } catch(e) {}
 
         try {
             document.getElementById("modeInfoText").innerHTML = "Switch to light mode"

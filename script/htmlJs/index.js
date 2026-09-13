@@ -21,6 +21,8 @@ $(document).ready(() => {
     cleanUpBeforeClosingSearch()
     fillHelpInfo()
     document.getElementById('loc').innerHTML = Math.round(loc).toLocaleString("en-IN")
+
+
 })
 
 const validateTheParams = () => {

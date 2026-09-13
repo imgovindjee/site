@@ -1,96 +1,119 @@
-let skills = [
-    { 
-        title: "QBasic", 
-        description: "The name QBasic is an acronym for 'Quick Beginners All Purpose Symbolic Instruction Code'. It was developed and launched by Microsoft in the year 1991 and is considered to be one of the most ideal languages for absolute beginners. It does not produce .exe files but instead generates files with extension(.bas) which can only be executed immediately by the built in QBasic interpreter. It is based on DOS operating systems but is also executable on windows." 
-    },
-    { 
-        title: "C", 
-        description: "C is a powerful general-purpose programming language. It can be used to develop software like operating systems, databases, compilers, and so on. C programming is an excellent language to learn to program for beginners." 
-    },
-    { 
-        title: "C++", 
-        description: "C++ is an object-oriented programming language which gives a clear structure to programs and allows code to be reused, lowering development costs." 
-    },
-    { 
-        title: "Java", 
-        description: "Java is a powerful general-purpose programming language. It is used to develop desktop and mobile applications, big data processing, embedded systems, and so on." 
+let skillCategories = [
+    {
+        category: "Languages",
+        icon: "💻",
+        items: [
+            { title: "Java", description: "Primary language at Innovaccer for building production-grade microservices on the Platform Engineering team. Used for high-throughput data ingestion pipelines processing 50M+ files, multi-tenant service architecture, and enterprise-scale backend systems." },
+            { title: "Python", description: "Used for automation, scripting, and data engineering workflows. Applied in agent-driven vulnerability remediation across Python repositories at Innovaccer, integrating UV for dependency management and Claude for context-aware analysis." },
+            { title: "Scala", description: "Used in production data engineering pipelines at Innovaccer — specifically in the Kafka pipeline (Snowflake → Databricks → Elasticsearch) and agent-driven vulnerability remediation workflows with Scala CLI integration." },
+            { title: "Go-Lang", description: "Systems programming language known for its efficiency and concurrency model. Used for building high-performance services and CLI tooling." },
+            { title: "C", description: "Low-level general-purpose programming language. Strong foundation in systems programming, memory management, and OS-level concepts." },
+            { title: "C++", description: "Object-oriented extension of C used for performance-critical applications. Strong foundation in data structures, algorithms, and competitive programming." },
+            { title: "JavaScript", description: "Full-stack language used across frontend (React.js) and backend (Node.js + Express.js) development. Applied in building web applications like Blog Your Voice and Movix." }
+        ]
     },
     {
-        title: "Enterprise Java", 
-        description: "Enterprise Java applications are usually run on reference run times such as microservers or application servers." 
+        category: "Microservices",
+        icon: "⚙️",
+        items: [
+            { title: "Auto-Scaling", description: "Hands-on experience designing auto-scaling policies for microservices at Innovaccer — configuring Kubernetes HPA and resource thresholds to handle dynamic workload spikes without manual intervention." },
+            { title: "Service Deployment", description: "End-to-end experience deploying production microservices using Docker, Kubernetes, Helm charts, and Argo CD. Involved in the multi-tenant Compute Plane + Data Plane architecture rollout at Innovaccer." }
+        ]
     },
     {
-        title: "Parallel Programming", 
-        description: "In parallel programming, a complex problem is broken down into simpler subtasks that can be executed simultaneously by multiple computational resources. This method is widely used by larger organizations and companies to handle advanced projects, ensuring higher efficiency and faster turnaround times." 
-    },    
-    { 
-        title: "Git", 
-        description: "Git is a free and open source distributed version control system designed to handle everything from small to very large projects with speed and efficiency." 
+        category: "Message Streaming",
+        icon: "📨",
+        items: [
+            { title: "Apache Kafka", description: "Production experience at Innovaccer: architected a Kafka pipeline (Snowflake → Databricks → Elasticsearch) resolving broker limit issues via dynamic topic configuration, Avro serialization for payload optimization, and an overflow routing system with retry + DLQ for zero message loss." },
+            { title: "RabbitMQ", description: "Message broker used for asynchronous inter-service communication. Part of the message streaming stack alongside Apache Kafka, enabling reliable event-driven microservice architectures." }
+        ]
     },
-    { 
-        title: "Python", 
-        description: "Python is a high-level, interpreted, general-purpose programming language. Its design philosophy emphasizes code readability with the use of significant indentation." 
+    {
+        category: "DevOps & Containerization",
+        icon: "🐳",
+        items: [
+            { title: "Docker", description: "Container platform used for packaging and deploying microservices at Innovaccer. Core to the Platform Engineering team's CI/CD and service deployment workflows." },
+            { title: "Kubernetes", description: "Production container orchestration at Innovaccer. Used for managing microservice deployments, auto-scaling, and the Compute Plane / Data Plane multi-tenant model." },
+            { title: "K9s", description: "Terminal-based UI for managing Kubernetes clusters. Used for real-time pod monitoring, log streaming, and debugging services deployed on Kubernetes at Innovaccer." },
+            { title: "Helm", description: "Kubernetes package manager used for deploying and managing services in Innovaccer's infrastructure. Involved in multi-tenant microservices migration and service onboarding workflows." },
+            { title: "Argo CD", description: "GitOps continuous delivery tool for Kubernetes. Used at Innovaccer for declarative deployment pipelines and ensuring infrastructure-as-code consistency across environments." }
+        ]
     },
-    { 
-        title: "Node JS", 
-        description: "Node.js is an open-source, cross-platform, back-end JavaScript runtime environment that runs on the V8 engine and executes JavaScript code outside a web browser, which was designed to build scalable network applications." 
+    {
+        category: "Cloud & Storage",
+        icon: "☁️",
+        items: [
+            { title: "AWS (S3)", description: "Cloud storage used at Innovaccer for overflow routing in the Kafka data pipeline — excess data is directed to AWS S3 as a buffer layer, backed by a retry + DLQ strategy for fault tolerance." },
+            { title: "Azure (ADLS)", description: "Azure Data Lake Storage used for large-scale data storage and processing in multi-cloud data engineering architectures." },
+            { title: "GCP", description: "Google Cloud Platform used alongside AWS and Azure in multi-cloud data engineering architectures. Familiar with GCP services for data storage, compute, and pipeline orchestration." }
+        ]
     },
-    { 
-        title: "Express JS", 
-        description: "Express.js, or simply Express, is a back end web application framework for Node.js, released as free and open-source software under the MIT License."
+    {
+        category: "Frameworks & Libraries",
+        icon: "🧩",
+        items: [
+            { title: "React.js", description: "Used to build production-grade frontend applications. Built Blog Your Voice (120 drafts/day posting system) and Movix (movies/TV discovery platform) with React." },
+            { title: "Node.js", description: "Used for building REST APIs and full-stack applications. Backend of Blog Your Voice built with Node.js + Express + MongoDB." },
+            { title: "Express.js", description: "Node.js web framework used to build REST APIs. Backend of Blog Your Voice built with Express + Node.js + MongoDB stack, handling routing, middleware, and API integration." },
+            { title: "JavaFX", description: "Java GUI framework used for building rich desktop applications. Applied in building desktop tools including the Process Scheduler and Algorithm Visualizer desktop variants." },
+            { title: "Servlets", description: "Java Servlets used for server-side web programming under the JEE stack. Core part of Enterprise Java development — handling HTTP requests, session management, and server-side rendering." },
+            { title: "JEE (Jakarta EE)", description: "Enterprise Java platform covering Servlets, JSP, JDBC, Hibernate, and JPA for building scalable server-side applications. Studied in-depth at DTU and applied in enterprise Java coursework." },
+            { title: "Swing", description: "Java GUI toolkit used for building cross-platform desktop applications. Used in the Process Scheduler app (FCFS, SRTF, Round Robin) and PDF File Compressor with real-time progress updates." }
+        ]
     },
-    { 
-        title: "Javascript ES6", 
-        description: "JavaScript ES6 (also known as ECMAScript 2015 or ECMAScript 6) is the newer version of JavaScript that was introduced in 2015." 
+    {
+        category: "Web Technologies",
+        icon: "🌐",
+        items: [
+            { title: "HTML5", description: "Standard markup language for web pages. Used extensively in building portfolio, web apps, and frontend projects with semantic HTML5 elements and modern browser APIs." },
+            { title: "CSS3", description: "Styling language for web pages. Strong proficiency in CSS3 including Flexbox, Grid, animations, transitions, CSS variables, and responsive design patterns." },
+            { title: "SCSS", description: "CSS preprocessor extending CSS with variables, nesting, mixins, and functions. Used in production frontend projects for maintainable and scalable stylesheet architecture." },
+            { title: "Bootstrap", description: "CSS framework for responsive web design. Used in portfolio and web projects to build mobile-first layouts quickly with pre-built components and a 12-column grid system." },
+            { title: "Tailwind CSS", description: "Utility-first CSS framework for rapid UI development. Used for building modern, responsive interfaces with fine-grained control over styling without writing custom CSS." }
+        ]
     },
-    { 
-        title: "HTML",
-        description: "HTML or HyperText Markup Language is the standard markup language for documents designed to be displayed in a web browser." 
+    {
+        category: "Data Engineering",
+        icon: "📊",
+        items: [
+            { title: "Snowflake", description: "Cloud data warehouse used at Innovaccer as the source in the Kafka pipeline (Snowflake → Databricks → Elasticsearch), leveraging its scalable architecture for data extraction at scale." },
+            { title: "Databricks", description: "Cloud data platform used in production at Innovaccer for data engineering pipelines, Spark-based transformations, and serving as a processing layer in the Kafka ingestion pipeline." },
+            { title: "Apache Spark", description: "Distributed data processing engine used in data engineering pipelines. Core part of the Innovaccer Databricks-based data platform for large-scale transformations." },
+            { title: "Avro", description: "Data serialization framework used in production at Innovaccer's Kafka pipeline to optimize message payload size and enforce schema consistency across producer-consumer boundaries." }
+        ]
     },
-    { 
-        title: "CSS", 
-        description: "CSS or Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML or XML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript." 
+    {
+        category: "Databases",
+        icon: "🗄️",
+        items: [
+            { title: "MySQL", description: "Widely used relational database management system. Used in enterprise Java and backend service projects for structured data persistence." },
+            { title: "MongoDB", description: "NoSQL document database used in full-stack projects. Backend of Blog Your Voice uses MongoDB for flexible data modeling and fast document retrieval." },
+            { title: "PostgreSQL", description: "Advanced open-source relational database. Used in production backend services for structured data storage and complex query execution." }
+        ]
     },
-    { 
-        title: "SCSS", 
-        description: "Syntactically Awesome Style Sheet SCSS (Sassy CSS) is a preprocessor scripting language that is a superset of CSS. SCSS (Sassy CSS) extends CSS with features like variables, nesting, and mixins. SCSS makes stylesheets more maintainable and efficient to write." 
-    },
-    { 
-        title: "Firebase", 
-        description: "Google Firebase is a Google- backed application development software that enables developers to develop iOS, Android and Web apps.Firebase provides tools for tracking analytics, reporting and fixing app crashes, creating marketing and product experiment." 
-    },
-    { 
-        title: "React JS", 
-        description: "React JS framework is an open-source JavaScript framework and library developed by Facebook. It's used for building interactive user interfaces and web applications quickly and efficiently with significantly less code." 
-    },
-    { 
-        title: "MySQL", 
-        description: "MySQL is a widely used relational database management system (RDBMS). MySQL is free and open-source. MySQL is ideal for both small and large applications." 
-    },
-    { 
-        title: "Mongo DB", 
-        description: "MongoDB is an open-source document database that provides high performance, high availability, and automatic scaling. MongoDB is used to save unstructured data in JSON format." 
-    },
-    { 
-        title: "Mongoose", 
-        description: "Mongoose provides a straight-forward, schema-based solution to model your application data. It includes built-in type casting, validation, query building, business logic hooks and more." 
-    },
-    { 
-        title: "ngrok", 
-        description: "Ngrok is a cross- platform application that exposes local server ports to the Internet." 
-    },
-   
+    {
+        category: "Version Control",
+        icon: "🔧",
+        items: [
+            { title: "Git", description: "Daily-use version control system for all projects. Experience with branching strategies, PR workflows, code reviews, and managing multi-repo codebases across Java, Python, Scala, and Node.js." },
+            { title: "GitHub", description: "Cloud-based Git hosting platform used for version control, collaboration, and open-source project management. All personal projects and contributions hosted at github.com/imgovindjee." }
+        ]
+    }
 ]
+
+// Flat array derived from categories — used by search
+let skills = skillCategories.flatMap(cat => cat.items)
 
 
 let handsOns = [
-    "Developing Web Apps using Enterprise Java.",
-    "Developing Hybrid Cross Platform App using Apache Cordova.",
-    "Adding, Modifying, Committing, Pushing repository on Git.",
-    "Using app buddle over play console for dynamic changes.",
-    "Hosting websites over GitHub.",
-    "Designing responsive web pages using Bootstrap 4.",
-    "Unit testing.",
-    "Developing API using Express Js, Node Js and MongDB using Mongoose API.",
-    "Automating tasks using python and shell scripting."
+    "Architected Kafka pipelines with Avro serialization, dynamic topic configuration, and DLQ-backed retry strategies for zero message loss at scale.",
+    "Built and scaled data ingestion pipelines handling 50M+ files in production with sub-35-minute 1M file throughput.",
+    "Migrated microservices from single-tenant to multi-tenant architecture using Compute Plane + Data Plane model on Kubernetes.",
+    "Built agent-driven vulnerability remediation workflows integrating UV, Scala CLI, and Claude across Python, Scala, Java, and Node.js repos.",
+    "Deployed and managed containerized microservices using Docker, Kubernetes, Helm, and Argo CD.",
+    "Developed full-stack applications with React.js frontend and Node.js + Express + MongoDB backend.",
+    "Solved 3,150+ DSA problems on LeetCode with a 2384+ max rating — specializing in Dynamic Programming, Graphs, and Recursion.",
+    "Experience with multi-cloud platforms: AWS S3, Azure ADLS, and GCP for data storage and pipeline overflow routing.",
+    "Built data engineering pipelines using Apache Spark, Databricks, and Snowflake for large-scale data transformations.",
+    "Version control and CI/CD workflows using Git, GitHub, GitLab, Helm, and Argo CD across production codebases."
 ]

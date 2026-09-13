@@ -51,22 +51,44 @@ function setSkills() {
     let gotParam = false
     skillsDetailsDisplayPropertyArray = new Array(skills.length).fill(false)
     let skillsHTML = ""
-    skills.forEach((item, index) => {
-        let unique_key = generateSkillKey(item.title)
-        if (colorIndex == 11) {
-            colorIndex = 0
-        }
-        if (paramValue != "" && !gotParam) {
-            if (unique_key == paramValue) {
-                skillsDetailsDisplayPropertyArray[index] = true
-                gotParam = true
-                skillsHTML += `<div class="col-lg-4" id="${unique_key}" style="padding-left: 10px;padding-right: 10px;margin-top:15px;"><div class="skill" onclick="toggleSkillDetail(${index})"><table><tr><td id="skillColor${index}" style="transition: border-bottom-left-radius 1s;background-color:${colorsArray[colorIndex]};width: 6px;border-top-left-radius: 5px;border-bottom-left-radius: 0px;"></td><td style="padding:7px;"><h5 class="my_text" style="margin: 0px">${item.title}</h5></td></tr></table><div style="font-size: 14px;margin-top: 4px;padding-left: 13px;padding-right: 13px;padding-bottom:7px;height: auto;opacity: 1;transform: scaleY(1);transform-origin: top;transition: opacity 1s,font-size 0.5s,margin-top 0.8s,transform 1s" id="skillDetail${index}" class="my_text">${item.description}</div></div></div>`
-                return
+
+    // Render by category if skillCategories is defined, else fall back to flat list
+    if (typeof skillCategories !== 'undefined') {
+        let globalIndex = 0
+        skillCategories.forEach(cat => {
+            skillsHTML += `<div class="col-12" style="margin-top:24px;margin-bottom:4px;">
+                <div class="section-heading" style="margin-bottom:8px;">
+                    <div class="section-heading-dot"></div>
+                    <h2 style="font-size:1.1rem;">${cat.icon ? cat.icon + ' ' : ''}${cat.category}</h2>
+                    <div class="section-heading-line"></div>
+                </div>
+            </div>`
+            cat.items.forEach(item => {
+                let index = globalIndex++
+                let unique_key = generateSkillKey(item.title)
+                if (colorIndex == 11) colorIndex = 0
+                let expanded = paramValue != "" && !gotParam && unique_key == paramValue
+                if (expanded) { skillsDetailsDisplayPropertyArray[index] = true; gotParam = true }
+                skillsHTML += `<div class="col-lg-4" id="${unique_key}" style="padding-left: 10px;padding-right: 10px;margin-top:15px;"><div class="skill" onclick="toggleSkillDetail(${index})"><table><tr><td id="skillColor${index}" style="transition: border-bottom-left-radius 1s;background-color:${colorsArray[colorIndex]};width: 6px;border-top-left-radius: 5px;border-bottom-left-radius: ${expanded ? '0px' : '5px'};"></td><td style="padding:7px;"><h5 class="my_text" style="margin: 0px">${item.title}</h5></td></tr></table><div style="font-size: ${expanded ? '14px' : '0px'};margin-top: ${expanded ? '4px' : '0px'};padding-left: 13px;padding-right: 13px;padding-bottom:${expanded ? '7px' : '0px'};height: auto;opacity: ${expanded ? '1' : '0'};transform: scaleY(${expanded ? '1' : '0'});transform-origin: top;transition: opacity 1s,font-size 0.5s,margin-top 0.8s,transform 1s" id="skillDetail${index}" class="my_text">${item.description}</div></div></div>`
+                colorIndex++
+            })
+        })
+    } else {
+        skills.forEach((item, index) => {
+            let unique_key = generateSkillKey(item.title)
+            if (colorIndex == 11) colorIndex = 0
+            if (paramValue != "" && !gotParam) {
+                if (unique_key == paramValue) {
+                    skillsDetailsDisplayPropertyArray[index] = true
+                    gotParam = true
+                    skillsHTML += `<div class="col-lg-4" id="${unique_key}" style="padding-left: 10px;padding-right: 10px;margin-top:15px;"><div class="skill" onclick="toggleSkillDetail(${index})"><table><tr><td id="skillColor${index}" style="transition: border-bottom-left-radius 1s;background-color:${colorsArray[colorIndex]};width: 6px;border-top-left-radius: 5px;border-bottom-left-radius: 0px;"></td><td style="padding:7px;"><h5 class="my_text" style="margin: 0px">${item.title}</h5></td></tr></table><div style="font-size: 14px;margin-top: 4px;padding-left: 13px;padding-right: 13px;padding-bottom:7px;height: auto;opacity: 1;transform: scaleY(1);transform-origin: top;transition: opacity 1s,font-size 0.5s,margin-top 0.8s,transform 1s" id="skillDetail${index}" class="my_text">${item.description}</div></div></div>`
+                    return
+                }
             }
-        }
-        skillsHTML += `<div class="col-lg-4" id="${unique_key}" style="padding-left: 10px;padding-right: 10px;margin-top:15px;"><div class="skill" onclick="toggleSkillDetail(${index})"><table><tr><td id="skillColor${index}" style="transition: border-bottom-left-radius 1s;background-color:${colorsArray[colorIndex]};width: 6px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;"></td><td style="padding:7px;"><h5 class="my_text" style="margin: 0px">${item.title}</h5></td></tr></table><div style="font-size: 0px;margin-top: 0px;padding-left: 13px;padding-right: 13px;padding-bottom:0px;height: auto;opacity: 0;transform: scaleY(0);transform-origin: top;transition: opacity 1s,font-size 0.5s,margin-top 0.8s,transform 1s" id="skillDetail${index}" class="my_text">${item.description}</div></div></div>`
-        colorIndex++
-    })
+            skillsHTML += `<div class="col-lg-4" id="${unique_key}" style="padding-left: 10px;padding-right: 10px;margin-top:15px;"><div class="skill" onclick="toggleSkillDetail(${index})"><table><tr><td id="skillColor${index}" style="transition: border-bottom-left-radius 1s;background-color:${colorsArray[colorIndex]};width: 6px;border-top-left-radius: 5px;border-bottom-left-radius: 5px;"></td><td style="padding:7px;"><h5 class="my_text" style="margin: 0px">${item.title}</h5></td></tr></table><div style="font-size: 0px;margin-top: 0px;padding-left: 13px;padding-right: 13px;padding-bottom:0px;height: auto;opacity: 0;transform: scaleY(0);transform-origin: top;transition: opacity 1s,font-size 0.5s,margin-top 0.8s,transform 1s" id="skillDetail${index}" class="my_text">${item.description}</div></div></div>`
+            colorIndex++
+        })
+    }
     document.getElementById('myskills').innerHTML = skillsHTML
     colorIndex = 0
     let text = ""

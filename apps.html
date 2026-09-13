@@ -189,6 +189,7 @@
     <link rel="stylesheet" type="text/css" href="style/common.css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="style/apps.css">
+    <link rel="stylesheet" type="text/css" href="style/redesign.css">
 
 
     <title>Shree Govind Jee</title>
@@ -305,13 +306,17 @@
             </div>
         </nav>
 
-        <div id="filtersDiv" style="margin-top: 10px;margin-left: 15px;margin-bottom: 10px;"></div>
+        <!-- Page Header Banner -->
+        <div class="page-header-banner" style="padding: 1.2rem 1.5rem 1rem;">
+          <span class="page-header-accent">Portfolio</span>
+          <h1 id="apps_heading" style="font-size:clamp(1.2rem,2.5vw,1.8rem)">Apps & Projects</h1>
+        </div>
+
+        <div id="filtersDiv" class="filter-bar"></div>
     </div>
 
-    <div id="scrollableDiv" class="container-fluid my_fade_in"
-        style="margin-top: 10px;margin-bottom: 10px;overflow-y: auto;">
-        <div class="row" id="myApps"></div>
-        <br />
+    <div id="scrollableDiv" class="my_fade_in" style="overflow-y: auto;">
+        <div id="myApps"></div>
     </div>
 
 </body>
