@@ -3,7 +3,8 @@ $(document).ready(() => {
     let status = (getDarkModeStatus() === "ON" ? true : false)
     document.getElementById("darkModeSwitch").src = status ? "assets/images/nav/on.png" : "assets/images/nav/off.png"
     darkMode(status)
-    document.getElementById("filtersDiv").innerHTML = isMobile() ? `<div style="align-items: center!important;display: flex;flex: 1;margin-bottom: 10px;margin-right: 15px;"><input class="form-control mr-sm-2 my_fade_in" type="search" placeholder="Search Apps..." style="height: 35px" aria-label="Search" onkeyup="onKeyPress(this)" onblur="blurListener()" onfocus="focusListener()" id="searchBox"></div><div style="display: flex"><div class="dropdown  my_fade_in"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Apps</button><div class="dropdown-menu my_text" aria-labelledby="dropdownMenu2" style="background-color: var(--card_bg)" id="techsFilterDiv"></div></div><div class="dropdown  my_fade_in" style="margin-left: 10px"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Categories</button><div class="dropdown-menu my_text" aria-labelledby="dropdownMenu3" style="background-color: var(--card_bg)"><button class="dropdown-item my_text" type="button" onclick="filterByType('All Categories')">All Categories</button><button class="dropdown-item my_text" type="button" onclick="filterByType('Demo Project')">Demo Project</button><button class="dropdown-item my_text" type="button" onclick="filterByType('Live Project')">Live Project</button><button class="dropdown-item my_text" type="button" onclick="filterByType('Mini Project')">Mini Project</button></div></div></div>` : `<div style="display: flex"><div class="dropdown  my_fade_in"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Apps</button><div class="dropdown-menu my_text" aria-labelledby="dropdownMenu2" style="background-color: var(--card_bg)" id="techsFilterDiv"></div></div><div class="dropdown  my_fade_in" style="margin-left: 10px"><button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Categories</button><div class="dropdown-menu my_text" aria-labelledby="dropdownMenu3" style="background-color: var(--card_bg)"><button class="dropdown-item my_text" type="button" onclick="filterByType('All Categories')">All Categories</button><button class="dropdown-item my_text" type="button" onclick="filterByType('Demo Project')">Demo Project</button><button class="dropdown-item my_text" type="button" onclick="filterByType('Live Project')">Live Project</button><button class="dropdown-item my_text" type="button" onclick="filterByType('Mini Project')">Mini Project</button></div></div><div style="align-items: center!important;display: flex;flex: 1;padding-left: 10px;padding-right: 10px;"><input class="form-control mr-sm-2 my_fade_in" type="search" placeholder="Search Apps..." style="height: 35px;" aria-label="Search" onkeyup="onKeyPress(this)" onblur="blurListener()" onfocus="focusListener()" id="searchBox"></div></div>`
+    document.getElementById("filtersDiv").innerHTML = `<div class="dropdown my_fade_in"><button class="btn dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Apps</button><div class="dropdown-menu" aria-labelledby="dropdownMenu2" id="techsFilterDiv"></div></div><div class="dropdown my_fade_in"><button class="btn dropdown-toggle" type="button" id="dropdownMenu3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Categories</button><div class="dropdown-menu" aria-labelledby="dropdownMenu3"><button class="dropdown-item" type="button" onclick="filterByType('All Categories')">All Categories</button><button class="dropdown-item" type="button" onclick="filterByType('Demo Project')">Demo Project</button><button class="dropdown-item" type="button" onclick="filterByType('Live Project')">Live Project</button><button class="dropdown-item" type="button" onclick="filterByType('Mini Project')">Mini Project</button></div></div><div style="flex:1;"><input class="form-control my_fade_in" type="search" placeholder="Search Apps..." aria-label="Search" onkeyup="onKeyPress(this)" onblur="blurListener()" onfocus="focusListener()" id="searchBox"></div>`
+    darkMode(status) // re-apply after filtersDiv rendered so search input gets correct styles
     let q = document.getElementById('searchBox').value.trim()
     if (q === "") {
         setApps(apps)
@@ -76,11 +77,34 @@ const onKeyPress = id => {
 }
 
 
+const typeTagStyle = {
+    'Live Project':  'background:rgba(16,185,129,0.15);border:1px solid rgba(16,185,129,0.35);color:#10B981',
+    'Demo Project':  'background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.35);color:#818CF8',
+    'Mini Project':  'background:rgba(6,182,212,0.15);border:1px solid rgba(6,182,212,0.35);color:#67E8F9'
+}
+
 const setApps = appsList => {
-    let text = ""
+    let text = `<div class="apps-grid">`
     appsList.forEach((item) => {
-        text += `<div class="col-lg-4" style="padding-left: 10px;padding-right: 10px;margin-top:10px;margin-bottom:5px"><div class="card"><img src="assets/images/apps/${item.media}" alt="Shree Govind Jee" loading="lazy" style="border-top-right-radius:5px;border-top-left-radius:5px;" width="100%" height="auto" /><h4 style="margin-left: 15px;margin-right: 15px;margin-top: 20px;" class="my_text">${item.appName}</h4><div><div class="badge badge-pill badge-${item.project_type === 'Mini Project' ? 'info' : (item.project_type === 'Demo Project' ? 'primary' : 'success')}" style="width:fit-content;height:fit-content;margin-bottom:5px;margin-top:5px;display:inline-flex;align-items:center;padding-left:12px;padding-right:12px;margin-left:15px;margin-right:5px">${item.project_type}</div><div class="badge badge-pill badge-warning" style="width:fit-content;height:fit-content;margin-bottom:5px;margin-top:5px;display:inline-flex;align-items:center;padding-left:12px;padding-right:12px;">${item.tech}</div></div><div style="margin-left: 15px;display: inline-block;margin-top: 8px;margin-bottom: 20px;"><button class="btn btn-sm my_button" onclick="window.location.href = 'pages/${item.redirect_url}'">Know More</button><button class="btn my_button btn-sm" style="margin-left: 10px" onclick="window.location.href = '${item.app_url}'">${item.button_text}</button></div></div></div>`
+        const tagStyle = typeTagStyle[item.project_type] || typeTagStyle['Demo Project']
+        text += `<div class="app-card">
+          <div class="app-card-media">
+            <img src="assets/images/apps/${item.media}" alt="${item.appName}" loading="lazy" />
+          </div>
+          <div class="app-card-body">
+            <h4 class="app-card-title">${item.appName}</h4>
+            <div class="app-card-tags">
+              <span class="app-tag" style="${tagStyle}">${item.project_type}</span>
+              <span class="app-tag app-tag-tech">${item.tech}</span>
+            </div>
+            <div class="app-card-actions">
+              <button class="btn-app-primary" onclick="event.stopPropagation();window.location.href='pages/${item.redirect_url}'">Know More</button>
+              <button class="btn-app-ghost" onclick="event.stopPropagation();window.location.href='${item.app_url}'">${item.button_text}</button>
+            </div>
+          </div>
+        </div>`
     })
+    text += `</div>`
     document.getElementById('myApps').innerHTML = text
 }
 

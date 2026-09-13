@@ -180,6 +180,7 @@
     <link rel="stylesheet" type="text/css" href="style/common.css">
     <link rel="stylesheet" type="text/css" href="style/style.css">
     <link rel="stylesheet" type="text/css" href="style/github_repos.css">
+    <link rel="stylesheet" type="text/css" href="style/redesign.css">
 
 
     <title>Shree Govind Jee</title>
@@ -294,23 +295,24 @@
             </div>
         </nav>
 
-        <div id="filtersDiv" style="margin-top: 10px;margin-left: 15px;">
-            <div style="display: flex">
-                <div class="dropdown my_fade_in">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        All Repositories
-                    </button>
-                    <div class="dropdown-menu" id="optionsDiv" aria-labelledby="dropdownMenu2"
-                        style="background-color: var(--card_bg)"></div>
-                </div>
+        <!-- Page Header Banner -->
+        <div class="page-header-banner" style="padding: 1.2rem 1.5rem 1rem;">
+          <span class="page-header-accent">Open Source</span>
+          <h1 id="github_repo_heading" style="font-size:clamp(1.2rem,2.5vw,1.8rem)">GitHub Repositories</h1>
+        </div>
 
-                <div
-                    style="align-items: center!important;display: flex;flex: 1;padding-left: 10px;padding-right: 10px;">
-                    <input class="form-control mr-sm-2 my_fade_in" type="search"
-                        placeholder="Search GitHub Repositories..." style="height: 35px;" aria-label="Search"
-                        onkeyup="onKeyPress(this)" onblur="blurListener()" onfocus="focusListener()" id="searchBox">
-                </div>
+        <div id="filtersDiv" class="filter-bar">
+            <div class="dropdown my_fade_in">
+                <button class="btn dropdown-toggle" type="button" id="dropdownMenu2"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    All Repositories
+                </button>
+                <div class="dropdown-menu" id="optionsDiv" aria-labelledby="dropdownMenu2"></div>
+            </div>
+            <div style="flex:1;">
+                <input class="form-control my_fade_in" type="search"
+                    placeholder="Search GitHub Repositories..." aria-label="Search"
+                    onkeyup="onKeyPress(this)" onblur="blurListener()" onfocus="focusListener()" id="searchBox">
             </div>
         </div>
     </div>

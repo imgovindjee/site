@@ -1,0 +1,368 @@
+/* ============================================================
+   PORTFOLIO — Adaptive Glassmorphism System
+   Frosted nav · Gradient mesh bg · Glass cards everywhere
+   ============================================================ */
+
+/* ── STATIC VARIABLES (colours that never change) ── */
+:root {
+  --primary:      #4F46E5;
+  --primary-dark: #3730A3;
+  --primary-lt:   #818CF8;
+  --accent:       #06B6D4;
+  --accent-lt:    #67E8F9;
+  /* Dynamic glass vars are injected by myScript.js at runtime */
+  --glass-bg:     #FFFFFF;
+  --glass-border: rgba(0,0,0,0.08);
+  --glass-shadow: 0 3px 6px rgba(0,0,0,0.10);
+  --glass-hover:  #FFFFFF;
+  --glass-tile:   #E8EAF6;
+  --body-gradient: #F5F5F5;
+  --nav_bg:       #4A148C;
+  --page_bg:      #F5F5F5;
+  --card_bg:      rgba(255,255,255,0.58);
+  --text_color:   #1E293B;
+  --text_muted:   #64748B;
+  --border_color: rgba(255,255,255,0.55);
+  --tile_bg:      rgba(238,242,255,0.7);
+}
+
+/* ── GLOBAL ── */
+* { box-sizing: border-box; }
+
+/* Apply background to both html+body so it covers the full viewport always */
+html,
+body,
+body.page_background {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: #F5F5F5 !important;           /* safe base — always plain light */
+  background: var(--body-gradient, #F5F5F5) !important;
+  min-height: 100vh;
+}
+
+/* Content wrappers must stay transparent so the mesh shows through */
+.content-area {
+  background: transparent !important;
+}
+
+/* ── NAVBAR — frosted glass ── */
+.nav_bar_background {
+  background: var(--nav_bg) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border-bottom: 1px solid rgba(255,255,255,0.14) !important;
+  box-shadow: 0 2px 28px rgba(79,70,229,0.22) !important;
+}
+
+.navbar-brand {
+  font-weight: 700 !important;
+  font-size: 17px !important;
+  background: linear-gradient(90deg, #fff 0%, #c7d2fe 100%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  letter-spacing: -0.3px !important;
+}
+
+.nav-link {
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: rgba(255,255,255,0.80) !important;
+  transition: color 0.2s, background 0.2s !important;
+  padding: 0.45rem 0.85rem !important;
+  border-radius: 6px !important;
+}
+.nav-link:hover {
+  color: #fff !important;
+  background: rgba(255,255,255,0.10) !important;
+}
+.nav-item.active .nav-link {
+  color: #fff !important;
+  background: rgba(255,255,255,0.14) !important;
+  border-bottom: 2px solid var(--accent-lt) !important;
+}
+
+/* ── GLASS CARD — the core mixin ── */
+.card,
+.timeline-body,
+.edu-card,
+.cert-card,
+.skill-card-new,
+.skill,
+.stat-chip {
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(18px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(180%) !important;
+  border: 1px solid var(--glass-border) !important;
+  box-shadow: var(--glass-shadow) !important;
+  transition: background 0.25s, transform 0.22s, box-shadow 0.22s !important;
+}
+
+/* hover lift */
+.card:hover,
+.timeline-body:hover,
+.edu-card:hover,
+.cert-card:hover,
+.skill-card-new:hover,
+.skill:hover,
+.stat-chip:hover {
+  background: var(--glass-hover) !important;
+  transform: translateY(-3px) !important;
+  box-shadow: var(--glass-shadow), 0 0 0 1px rgba(79,70,229,0.12) !important;
+}
+
+/* ── PAGE HEADER BANNER (inner pages) ── */
+.page-header-banner {
+  background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, #7C3AED 100%);
+  padding: 3rem 1.5rem 2rem;
+  margin-bottom: 0;
+  position: relative;
+  overflow: hidden;
+}
+.page-header-banner::before {
+  content: '';
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 180px; height: 180px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.05);
+}
+.page-header-banner::after {
+  content: '';
+  position: absolute;
+  bottom: -30px; left: 10%;
+  width: 120px; height: 120px;
+  border-radius: 50%;
+  background: rgba(6,182,212,0.12);
+}
+.page-header-banner h1 {
+  color: #fff;
+  font-size: clamp(1.6rem, 3vw, 2.4rem);
+  font-weight: 700;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+.page-header-banner p {
+  color: rgba(255,255,255,0.72);
+  font-size: 15px;
+  margin: 6px 0 0;
+  position: relative;
+  z-index: 1;
+}
+.page-header-accent {
+  display: inline-block;
+  background: rgba(6,182,212,0.2);
+  border: 1px solid rgba(6,182,212,0.4);
+  color: var(--accent-lt);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 3px 12px;
+  border-radius: 100px;
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── SKILL CARDS (left-accent bar style) ── */
+.skill-card-new {
+  border-radius: 12px;
+  padding: 12px 16px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.skill-card-new::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: linear-gradient(180deg, var(--primary), var(--accent));
+  border-radius: 4px 0 0 4px;
+}
+.skill-card-new h5 { font-size: 14px; font-weight: 600; color: var(--text_color); margin: 0; }
+.skill-card-detail {
+  font-size: 13px;
+  color: var(--text_muted);
+  line-height: 1.6;
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px solid var(--glass-border);
+}
+
+/* ── TIMELINE (Work Exp) ── */
+.timeline-wrapper { padding: 1rem 0; }
+.timeline-entry {
+  display: flex;
+  gap: 1.5rem;
+  position: relative;
+  padding-bottom: 2rem;
+}
+.timeline-entry::before {
+  content: '';
+  position: absolute;
+  left: 27px;
+  top: 40px; bottom: 0;
+  width: 2px;
+  background: linear-gradient(180deg, var(--primary-lt), transparent);
+}
+.timeline-dot {
+  width: 56px; height: 56px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 16px rgba(79,70,229,0.35);
+  position: relative;
+  z-index: 1;
+}
+.timeline-body {
+  border-radius: 14px;
+  padding: 1.2rem 1.4rem;
+  flex: 1;
+}
+.timeline-company { font-size: 17px; font-weight: 700; color: var(--text_color); margin-bottom: 2px; }
+.timeline-role { font-size: 13px; color: var(--primary-lt); font-weight: 600; margin-bottom: 6px; }
+.timeline-date {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  background: var(--glass-tile);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  color: var(--primary-lt);
+  font-size: 12px;
+  font-weight: 500;
+  padding: 3px 10px;
+  border-radius: 100px;
+  margin-bottom: 10px;
+}
+.timeline-desc { font-size: 13px; color: var(--text_muted); line-height: 1.65; }
+
+/* Project sub-items */
+.project-subitem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 10px 0;
+  border-top: 1px solid var(--glass-border);
+}
+.project-subitem:first-child { border-top: none; padding-top: 0; }
+.project-sub-icon {
+  width: 36px; height: 36px;
+  border-radius: 8px;
+  background: var(--glass-tile);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+}
+.project-sub-name { font-size: 14px; font-weight: 600; color: var(--text_color); }
+.project-sub-desc { font-size: 12px; color: var(--text_muted); margin-top: 3px; line-height: 1.5; }
+.project-sub-date { font-size: 11px; color: var(--primary-lt); margin-top: 3px; }
+
+/* ── EDUCATION CARDS ── */
+.edu-card {
+  border-radius: 14px;
+  padding: 1.4rem;
+  margin-bottom: 16px;
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+.edu-icon {
+  width: 52px; height: 52px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 22px;
+  box-shadow: 0 4px 12px rgba(79,70,229,0.3);
+}
+.edu-title { font-size: 16px; font-weight: 700; color: var(--text_color); margin-bottom: 3px; }
+.edu-sub { font-size: 13px; color: var(--text_muted); margin-bottom: 6px; }
+.edu-badge {
+  display: inline-block;
+  background: var(--glass-tile);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--glass-border);
+  color: var(--primary-lt);
+  font-size: 11px;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 100px;
+}
+
+/* ── CERT CARDS ── */
+.cert-card {
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+.cert-dot {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  flex-shrink: 0;
+}
+.cert-name { font-size: 14px; font-weight: 500; color: var(--text_color); flex: 1; }
+.cert-date { font-size: 12px; color: var(--text_muted); white-space: nowrap; }
+
+/* ── SECTION HEADING ── */
+.section-heading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1.2rem;
+  margin-top: 1.5rem;
+}
+.section-heading-line {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, var(--glass-border), transparent);
+}
+.section-heading h2 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--text_color);
+  margin: 0;
+  white-space: nowrap;
+}
+.section-heading-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--primary), var(--accent));
+  flex-shrink: 0;
+}
+
+/* ── FOOTER ── */
+.site-footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  border-top: 1px solid var(--glass-border);
+  color: var(--text_muted);
+  font-size: 13px;
+  background: var(--glass-bg) !important;
+  backdrop-filter: blur(18px) !important;
+  -webkit-backdrop-filter: blur(18px) !important;
+}
+.site-footer span {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 600;
+}
+
+/* ── ANIMATIONS ── */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.slide-up { animation: slideUp 0.5s ease both; }
